@@ -1,4 +1,4 @@
-# Intro to Azure Container Service
+# Intro to Azure CosmosDB
 ### Expected outcome
 In this lab, you will prepare your workstation VM for working with ACS and Kubernetes. You will need to have an RDP client on your local PC and access to the web to launch our Hackfest Workstation VM.
 ### How to

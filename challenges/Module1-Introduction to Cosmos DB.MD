@@ -2,7 +2,7 @@
 # Lab1: Introduction to Cosmos DB
 ## 1.	Introduction to Azure Cosmos DB
 ### 1.1	Create Cosmos DB Account with SQL API
-1.	**Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.
+1.	**Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.	To toggle **show/hide** the Portal menu options with icon, Click on the Show Menu button.<br/>     
 <img src="images/showhide.jpg"/><br/>
 3.	Click on the **New** icon in the Menu navigation bar.<br/>
@@ -21,4 +21,37 @@
 <img src="images/cosmosdbinfo.jpg"/><br/>
 8.	After completion a notification will be raised as below.<br/>
 <img src="images/cosmosdb_notification.jpg"/><br/>
+### 1.2	Create new DB and collection
+1.	Go to the created Cosmos DB by clicking on **Go to Resource** option in the notification bar.<br/>
+<img src="images/gotoResource.jpg"/><br/>
+2.	In the Azure Cosmos DB account blade that appear, Click on **Overview**.<br/>
+<img src="images/cosmosdboverview.jpg"/><br/>
+3.  Click on **+Add Collection**.<br/> 
+<img src="images/selectAddCollection.jpg"/><br/>
+4.  provide the following details in the Add Collection blade that appears.<br/>
+    - Database id : Type a new database id
+    - Collection id : Type a new collection id
+    - Storage Capacity : **Fixed(10 GB)**
+    - Throughput : **400**<br/>
+    Click on **OK**.<br/>
+<img src="images/addcollectioninfo.jpg"/><br/>    
+### 1.3	Load Data
+#### 1.3.1	Access Windows VM and Launch Data migration tool.
+1.  Download the data which we want to migrate into cosmos DB by clicking [here](http://portalcontent.blob.core.windows.net/samples/NutritionData.json)<br/>
+2.  **Launch** your **data migration tool** by opening the **dtui.exe** application.<br/>
+3.  In the **DocumentDB Data Migration Tool** blade that appear, Click on **Next**.
+4.  In the source information page that appear, select Import from **JSON file(s)** and click on **Add Files** 
+5.  Select the downloaded file, **NutritionData.json** and click on open.
+6.  Then in the **source information** page, click on **Next**.
+7.  Now go to your **Azure Cosmos DB account** and Click on **keys** menu under the **setting** tile.
+8.  Then **copy** the **Primary Connection String** and paste the connection string in a notepad.
+9.  Now click on **Overview** menu in the **Azure Cosmos DB account** page and copy the newly created database name, i.e, mynewdb.
+10.  Now open the notepad and after the connection string add the text **Database=mynewdb**.
+11.  
+
+
+
+
+
+
 

@@ -14,10 +14,11 @@
 6.	Click on Create in the **Azure Cosmos DB** blade.<br/>
 <img src="images/cosmos_create.jpg"/><br/>
 7.	Provide the following details in the Add directory blade.<br/>
-   -	ID : Provide any unique name.
-   -	API : **SQL** 
-   -	Resource group : Select **Create new** and type the name of the new resource group to be created.<br/>
+    -	ID : Provide any unique name.
+    -	API : **SQL** 
+    -	Resource group : Select **Create new** and type the name of the new resource group to be created.<br/>
 Click on **Create**.<br/>
 <img src="images/cosmosdbinfo.jpg"/><br/>
-8.	Now a notification will be raised as below.<br/>
+8.	After completion a notification will be raised as below.<br/>
+<img src="images/cosmosdb_notification.jpg"/><br/>
 

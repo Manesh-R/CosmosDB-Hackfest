@@ -105,7 +105,18 @@ A zip file will download, extract and open the file to view the json data set.<b
 <img src="images/cosmosdbDocuments.jpg"/><br/>  
 9.  You can see the data by clicking the **IDs**.<br/>
 <img src="images/selectID.jpg"/><br/>  
-
+#### 1.4.2	Query data
+1.  In the **Azure Cosmos DB account** blade that appear, Click on **Query Explorer**.<br/>
+<img src="images/queryexplorer.jpg"/><br/>
+2.  In the page that appear, select the our **Database(mynewdb)** and **Collection(mynewcollection)**.<br/>
+<img src="images/QEslection.jpg"/><br/>
+3.  Now type your query based on the requirement in the provided space and click on **Run Query**.<br/>
+```
+For example: SELECT * FROM c  WHERE c.Sector= "Financial"
+```
+<img src="images/query.jpg"/><br/>
+4.  Now we can see all the data with **Sector = Financial**<br/>
+<img src="images/qeuryoutput.jpg"/><br/>
 
 
 

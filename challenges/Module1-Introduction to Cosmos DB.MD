@@ -45,7 +45,7 @@
 4.  In the source information page that appear, select Import from **JSON file(s)** and click on **Add Files**.<br/>
 <img src="images/SourceInfo.jpg"/><br/>   
 5.  Select the downloaded file, **NutritionData.json** and click on open.<br/>
-<img src="images/importfile.jpg"/><br/>   
+<img src="images/importfiles.jpg"/><br/>   
 6.  Then in the **source information** page, click on **Next** and a Target information page will appear.<br/><img src="images/SourceInfoNxt.jpg"/><br/>   
 7.  Now go to your **Azure Cosmos DB account** and Click on **keys** menu under the **setting** tile.<br/><img src="images/keys.jpg"/><br/>   
 8.  Then **copy** the **Primary Connection String** and paste the connection string in a notepad.<br/>

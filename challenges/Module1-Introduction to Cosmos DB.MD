@@ -114,7 +114,7 @@ A zip file will download, extract and open the file to view the json data set.<b
 ```
 For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 ```
-<img src="images/query.jpg"/><br/>
+<img src="images/queryrun.jpg"/><br/>
 4.  Now we can see all the data with **Sector = Financial**<br/>
 <img src="images/qeuryoutput.jpg"/><br/>
 

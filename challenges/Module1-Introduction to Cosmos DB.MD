@@ -70,8 +70,9 @@
      <img src="images/advancedPage.jpg"/><br/>
 13.  Then a Summary page will appear, in that click on **Import**.
      <img src="images/importtodb.jpg"/><br/>
-14.  Now the import will start.
+14.  Now the import will start.It will take a couple of minutes to complete.
      <img src="images/exportStatus.jpg"/><br/>
+     
 
 
 

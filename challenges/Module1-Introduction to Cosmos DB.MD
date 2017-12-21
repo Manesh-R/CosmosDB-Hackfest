@@ -3,7 +3,7 @@
 ## 1.	Introduction to Azure Cosmos DB
 ### 1.1	Create Cosmos DB Account with SQL API
 1.	**Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
-2.	To toggle **show/hide** the Portal menu options with icon, Click on the Show Menu button.<br/>     
+2.	To toggle show/hide the Portal menu options with icon, Click on the **Show Menu** button.<br/>     
 <img src="images/showhide.jpg"/><br/>
 3.	Click on the **New** icon in the Menu navigation bar.<br/>
 <img src="images/new.jpg"/><br/>

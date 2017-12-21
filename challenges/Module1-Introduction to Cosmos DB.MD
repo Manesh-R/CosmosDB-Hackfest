@@ -116,7 +116,7 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 ```
 <img src="images/queryrun.jpg"/><br/>
 4.  Now we can see all the data with **Sector = Financial**<br/>
-<img src="images/qeuryoutput.jpg"/><br/>
+<img src="images/query_op.jpg"/><br/>
 
 
 

@@ -32,7 +32,7 @@
     - Database id : Type a new database id
     - Collection id : Type a new collection id
     - Storage Capacity : **Fixed(10 GB)**
-    - Throughput : **400**<br/>
+    - Throughput : **1000**<br/>
     Click on **OK**.<br/>
 <img src="images/addcollectioninfo.jpg"/><br/>    
 ### 1.3	Load Data
@@ -64,8 +64,8 @@
     <img src="images/targetinfocollection.jpg"/><br/>    
        - Collection throughput: Copy the collection **throughput** from the **overview** page of **Azure Cosmos DB account** and paste it here.<br/>
     Click on **Next** button.
-    <img src="images/CopyThroughput.jpg"/><br/>
-    <img src="images/coll-thruput.jpg"/><br/>
+    <img src="images/copythruput.jpg"/><br/>
+    <img src="images/targetThruput.jpg"/><br/>
 12.  Then an **advanced** page will appear, in that click on **Next**.
      <img src="images/advancedPage.jpg"/><br/>
 13.  Then a Summary page will appear, in that click on **Import**.

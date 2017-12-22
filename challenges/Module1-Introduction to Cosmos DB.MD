@@ -105,7 +105,7 @@ A zip file will download, extract and open the file to view the json data set.<b
 <img src="images/cosmosdbDocuments.jpg"/><br/>  
 9.  You can see the data by clicking the **IDs**.<br/>
 <img src="images/selectID.jpg"/><br/>  
-#### 1.4.2	Query data
+#### 1.4.2  Query data
 1.  In the **Azure Cosmos DB account** blade that appear, Click on **Query Explorer**.<br/>
 <img src="images/queryexplorer.jpg"/><br/>
 2.  In the page that appear, select the our **Database(mynewdb)** and **Collection(mynewcollection)**.<br/>
@@ -117,6 +117,16 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 <img src="images/queryrun.jpg"/><br/>
 4.  Now we can see all the data with **Sector = Financial**<br/>
 <img src="images/query_op.jpg"/><br/>
-
-
-
+### 2.  Geo-Replication
+#### 2.1   Create replication in multiple regions
+1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
+2.  Select the **Azure Cosmos DB account(i.e,cosmosdb321)**.<br/>
+3.  In the Cosmos DB account page click on **Replicate data globally** tab under the **Settings** tile.<br/> 
+<img src="images/replicate.jpg"/><br/>
+4.  In the new page that appear, click on **Add new region** under **Read regions**.<br/>
+<img src="images/addregion.jpg"/><br/>
+5.  Now select the required **region** (say Central US) from the list and click on **OK**.<br/> 
+<img src="images/regionok.jpg"/><br/>
+6.  If you want to add more regions, click on Add new region again and select the required region and click on **Save**.
+<img src="images/addregion2.jpg"/><br/>
+<img src="images/replicationsave.jpg"/><br/>

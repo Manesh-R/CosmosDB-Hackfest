@@ -2,7 +2,7 @@
 ## 1. Understand the Flight App and Migrate the database to Azure Cosmos DB
 ### 1.1 Understand Flight reservation application 
 #### 1.1.1	Access Jump VM 
-1. In azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
+1. From azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
 <img src="images/jumpvm1.jpg"/><br/>
 2. Click on start button and search for **Remote Desktop Connection** and click on it.
 3. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied in above step.
@@ -18,52 +18,21 @@
 <img src="images/jumpvm2.jpg"/><br/>
 2. Now, in ContosoAirServices double click on the config.json from the Explorer file to open.
 <img src="images/jumpvm3.jpg"/><br/>
-3.
+3. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services. Click right side of mouse and click on **Open Terimal Here** as shown below.
+<img src="images/jumpvm4.jpg"/><br/>
+4. Run **npm start** command.
+<img src="images/jumpvm5.jpg"/><br/>
+5. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
+<img src="images/jumpvm6.jpg"/><br/>
+6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
+7. You will see the sign-up page. Enter your microsoft Credential here.  
+<img src="images/signup.jpg"/><br/>
+8. Once you get login, you will be redirected to **ContosoAir app**.
+<img src="images/contoso1.jpg"/><br/>
+9. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
+<img src="images/contoso2.jpg"/><br/>
+ 
 
-
-##  Access Jump VM 
-
-
-##  Launch VS Code and understand application components and hierarchy 
-
-## Launch ContosoAir Website and Services
-
-   > _In this part, you will learn how to enable the services and launch_ **ContosoAir website**_._
-
-1. To start the ContosoAir app service layer, go to **terminal** change **cd* to /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services and type command **npm start** to start the service.
-   ```cmd
-   npm start
-   ```
-
-   ![](img/npmStartnew.jpg)
-
-2. This should report that application is now running.
-
-
-
-   ![Soln Explorer](img/solnExplorer.png)
-
-1. To start the ContosoAir app service layer, go to **terminal** change **cd* to /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website and type command **ng Serve** to start the service.
-   ```cmd
-   npm start
-   ```
-1. Once the above process is completed. Run **ng serve** command.
-    ```cmd
-   ng serve
-    ```
-    > **Note:** This process may take some time.
-
-    ![](img/ngServer.jpg)
-
-1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
-
-   ![](img/MicrosoftLogin.jpg)
-
-   > **Note:** You should have Microsoft account to access the **ContosoAir** app.
-
-   ![](img/ContosoAirApp.jpg)
-
-1. Once you get login, you will be redirected to **ContosoAir app**. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
 
    > **Note:** If the browser refresh continuously then please open the **localhost URL** [http://localhost:4200](http://localhost:4200) in different browser i.e. **Edge browser** <br/>
 

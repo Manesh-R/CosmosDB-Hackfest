@@ -6,10 +6,10 @@
             "value": "JumpVM"
         },
        "powerBIVirtualMachineName": {
-            "value": "PowerBIVM"
+            "value": "powerbi-vm"
         },
         "adminUsername": {
-            "value": "Dbadmin"
+            "value": "dbadmin"
         },
         "adminPassword": {
             "value": "Password@123"

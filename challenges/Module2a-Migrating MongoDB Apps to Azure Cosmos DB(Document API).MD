@@ -3,19 +3,19 @@
 ### 1.1 Understand Flight reservation application 
 #### 1.1.1	Access Jump VM 
 1. In azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
-<img src="jumpvm1.jpg"/><br/>
+<img src="images/jumpvm1.jpg"/><br/>
 2. Click on start button and search for **Remote Desktop Connection** and click on it.
 3. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied above step.
-<img src="rdc.jpg"/><br/>
+<img src="images/rdc.jpg"/><br/>
 4. Click on **Yes** button in Remote Desktop Connection Wizard.
-<img src="rdc2.jpg"/><br/>
+<img src="images/rdc2.jpg"/><br/>
 5. Enter the credentials provided in the mail to connect to VM.
-<img src="xrdp.jpg"/><br/>
+<img src="images/xrdp.jpg"/><br/>
 #### 1.1.2	Launch VS Code and understand application components and hierarchy 
 1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
-<img src="jumpvm2.jpg"/><br/>
+<img src="images/jumpvm2.jpg"/><br/>
 2. Now, in ContosoAirServices double click on the config.json from the Explorer file to open.
-<img src="jumpvm3.jpg"/><br/>
+<img src="images/jumpvm3.jpg"/><br/>
 3.
 
 

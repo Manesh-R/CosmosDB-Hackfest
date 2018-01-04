@@ -24,7 +24,9 @@ Understand the Flight App and Migrate the database to Azure Cosmos DB
 
 # Cosmos DB Change Feed
 
-## Create Azure functions with Deal Data
+## Create an Azure function
+
+## Create a function with Deal Data
 
   > _Let's create an Azure Function to retrieve data of flight deals._
 

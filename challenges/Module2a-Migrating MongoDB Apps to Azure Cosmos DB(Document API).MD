@@ -6,7 +6,50 @@ Understand the Flight App and Migrate the database to Azure Cosmos DB
 
 ##  Launch VS Code and understand application components and hierarchy 
 
-## Launch and test application
+## Launch ContosoAir Website and Services
+
+   > _In this part, you will learn how to enable the services and launch_ **ContosoAir website**_._
+
+1. To start the ContosoAir app service layer, go to **terminal** change **cd* to /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services and type command **npm start** to start the service.
+   ```cmd
+   npm start
+   ```
+
+   ![](img/npmStartnew.jpg)
+
+2. This should report that application is now running.
+
+
+
+   ![Soln Explorer](img/solnExplorer.png)
+
+1. To start the ContosoAir app service layer, go to **terminal** change **cd* to /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website and type command **ng Serve** to start the service.
+   ```cmd
+   npm start
+   ```
+1. Once the above process is completed. Run **ng serve** command.
+    ```cmd
+   ng serve
+    ```
+    > **Note:** This process may take some time.
+
+    ![](img/ngServer.jpg)
+
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
+
+   ![](img/MicrosoftLogin.jpg)
+
+   > **Note:** You should have Microsoft account to access the **ContosoAir** app.
+
+   ![](img/ContosoAirApp.jpg)
+
+1. Once you get login, you will be redirected to **ContosoAir app**. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
+
+   > **Note:** If the browser refresh continuously then please open the **localhost URL** [http://localhost:4200](http://localhost:4200) in different browser i.e. **Edge browser** <br/>
+
+   ![File](img/ContosoAirApp.jpg)
+
+
 
 # Migrate MongoDB database to Azure Cosmos DB with Mongo API
 

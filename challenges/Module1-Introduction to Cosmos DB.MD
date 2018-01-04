@@ -134,28 +134,41 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 #### 3.1 Connect PowerBI desktop to CoasmosDB
 1. Access Windows VM and Run Power BI Desktop.
 2. Once Power BI Desktop is launched, a Welcome screen is displayed. Provide the information and Click Done.
+<img src="images/welcomepage.jpg"/><br/>
 3. The Report view of Power BI Desktop is displayed. Select the Home ribbon, then click on Get Data. The Get Data window should appear.
+<img src="images/reportview.jpg"/><br/>
 4. Click on Azure, select Azure Cosmos DB (Beta), and then click Connect. 
+<img src="images/getdata.jpg"/><br/>
 5. On the Preview Connector page, click Continue. The Azure Cosmos DB Connect window appears.
-6. Specify the Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and then click OK.
-7. To use your own account, you can retrieve the URL from the URI box in the Keys blade of the Azure portal.
+<img src="images/connector.jpg"/><br/>
+6. Specify the Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and Click OK.
+<img src="images/cosmosurl.jpg"/><br/>
 ```
 Leave the database name, collection name, and SQL statement blank as these fields are optional. Instead, we will use the Navigator to    select the Database and Collection to identify where the data comes from.
 ```
+7. To use your own account, you can retrieve the URL from the URI box in the Keys blade of the Azure portal.
+<img src="images/cosmoskeyandurl.jpg"/><br/>
 8. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the   key from the Primary Key box in the Read-only Keys blade of the Azure portal.
+<img src="images/accountkey.jpg"/><br/>
 9. When the account is successfully connected, the Navigator will appear. The Navigator will show a list of databases under the account.
+<img src="images/navigatorsimple.jpg"/><br/>
 10. Click and expand on the database where the data for the report will come from, select mynewdb. 
 11. Now, select a collection that you will retrieve the data from. Select mynewcollection.
-    The Preview pane shows a list of Record items. A Document is represented as a Record type in Power BI. Similarly, a nested JSON         block inside a document is also a Record.
+    The Preview pane shows a list of Record items. A Document is represented as a Record type in Power BI. Similarly, a nested       JSON block inside a document is also a Record.
+    <img src="images/navigator.jpg"/><br/>
 12. Click Edit to launch the Query Editor in a new window to transform the data.
 #### 3.2 Flattening and transforming JSON documents
 1. Switch to the Power BI Query Editor window, where the Document column in the center pane. 
+<img src="images/queryeditor.jpg"/><br/>
 2. Click on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Count of Document.Shares Outstanding,etc and then click OK.
+<img src="images/selectrecord.jpg"/><br/>
 3. The center pane will display a preview of the result with the fields selected.
+<img src="images/records.jpg"/><br/>
 4. Click Close and Apply to save the data model.
 5. The following shows the basic steps of creating a simple interactive Pie Chart view report.
 * For our example, we will create a pie chart view showing the document sector of each Count of Document.Shares Outstanding. In the Visualizations pane, click on the pie chart visual type as highlighted in the screenshot above.
-* Now, drag and drop the Count of Document.Shares Outstanding field from the Fields pane to the Values and Filters in Visualizations pane.
+* Now, drag and drop the Count of Document.Shares Outstanding field from the Fields pane to the Values and Filters in   Visualizations pane.
 * Next, drag and drop the Document.Sector field to the Filters property.
 * You should now see the Pie Chart showing different sectors with Count of Document.Shares Outstanding values.
+<img src="images/piechart.jpg"/><br/>
 * You now have created a basic report. You can further customize the report by adding more visualizations.

@@ -167,8 +167,9 @@ Leave the database name, collection name, and SQL statement blank as these field
 4. Click Close and Apply to save the data model.
 5. The following shows the basic steps of creating a simple interactive Pie Chart view report.
 * For our example, we will create a pie chart view showing the document sector of each Count of Document.Shares Outstanding. In the Visualizations pane, click on the pie chart visual type as highlighted in the screenshot above.
+<img src="images/piechart.jpg"/><br/>
 * Now, drag and drop the Count of Document.Shares Outstanding field from the Fields pane to the Values and Filters in   Visualizations pane.
 * Next, drag and drop the Document.Sector field to the Filters property.
 * You should now see the Pie Chart showing different sectors with Count of Document.Shares Outstanding values.
-<img src="images/piechart.jpg"/><br/>
+<img src="images/piechart1.jpg"/><br/>
 * You now have created a basic report. You can further customize the report by adding more visualizations.

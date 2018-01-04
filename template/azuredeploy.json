@@ -303,13 +303,15 @@
             "offer": "WindowsServer",
             "sku": "2012-R2-Datacenter",
             "version": "latest"
-          }
-           "osDisk": {
-                        "createOption": "fromImage",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
-                        }
-                    },
+          },
+              "osDisk": {
+             "name": "osdisk",
+            "vhd": {
+             "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')),'2016-01-01').primaryEndpoints.blob,'vhds/', parameters('powerBIVirtualMachineName'),'-','vmOSDisk','.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+            },
           "dataDisks": [
           ]
         },

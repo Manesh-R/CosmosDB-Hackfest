@@ -305,10 +305,7 @@
             "version": "latest"
           },
           "osDisk": {
-            "createOption": "fromImage",
-            "managedDisk": {
-              "storageAccountType": "Standard_LRS"
-            }
+            "createOption": "FromImage"
           },
           "dataDisks": [
           ]

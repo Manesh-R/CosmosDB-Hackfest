@@ -305,7 +305,13 @@
             "version": "latest"
           },
           "osDisk": {
-            "createOption": "FromImage"
+            "osType": "Windows",
+            "name": "[concat(parameters('powerBIVirtualMachineName'),'_OsDisk')]",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+             "managedDisk": {
+                     "storageAccountType": "Premium_LRS",
+             }
           },
           "dataDisks": [
           ]

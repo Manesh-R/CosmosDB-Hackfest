@@ -186,67 +186,67 @@ Cloud service offering a comprehensive SLA for:
 1. Click on **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>"** which is your **Cosmos DB Account** and then click on **Metrics** option present under **Cosmos DB Account** blade.
 1. SLA's based on parameters such as **Throughput, Storage, Availability, Latency and Consistency** will be viewed.
 
-   ![](img/charts_thruput_menu.png)
+   ![](images/charts_thruput_menu.png)
 
 #### Charts included under Throughput menu
 
 1. Click on **Throughput** menu to view the graphs.
 1. The first graph displayed is to find **Number of requests over the 1 hour period.**
 
-   ![](img/Throughput1.jpg)
+   ![](images/Throughput1.jpg)
 
 1. The second graph is to monitor **Number of requests that failed due to exceeding throughput or storage capacity provisioned for the collection per 5 min.**
 1. The third chart displays **provisioned throughput and Max Request Units per second (RU/s) consumed by a physical partition, over a given 5-minute interval, across all partitions.**
 
-    ![](img/Throughput2.jpg)
+    ![](images/Throughput2.jpg)
 
 1. This chart **displays provisioned throughput and Max Request Units per second (RU/s) consumed by each physical partition over the last observed 1-minute interval.**
 
-    ![](img/Throughput3.jpg)
+    ![](images/Throughput3.jpg)
 
 1. The fourth chart shows the **Average Consumed Request Units per second (RU/s) over the 5-minute period vs provisioned RU/s.**
 
-    ![](img/Throughput4.jpg.png)
+    ![](images/Throughput4.jpg.png)
 
     #### Charts included under Storage menu.
 
 1. Click on **Storage** menu to view the graphs.
 1. The first graph displays the **Available storage capacity for this collection, current size of the collection data, and index.**
 
-    ![](img/data_index_storage_consume_vs_available.png)
+    ![](images/data_index_storage_consume_vs_available.png)
 
 1. Another graph shows the **Current size of data and index stored per physical partition.**
 
-    ![](img/storage1.jpg)
+    ![](images/storage1.jpg)
 
 1. The third chart shows the **Current number of documents stored per physical partition**.
 
-    ![](img/storage2.jpg)
+    ![](images/storage2.jpg)
 
     #### Charts included under Availability menu.
 
 1. Click on **Availability** menu to view the graphs.
 1. The chart displays the **Availability is reported as % of successful request over the past hour, where successful is defined in the DocumentDB SLA.**
 
-    ![](img/availability.jpg)
+    ![](images/availability.jpg)
 
     #### Charts included under Latency menu.
 
 1. Click on **Latency** menu to view the graphs.
 1. First graph displays **the Latency for a 1KB document lookup operation observed in this account's read regions in the 99th percentile.**
 
-    ![](img/latency1.jpg)
+    ![](images/latency1.jpg)
 
 1. Another graph displays the Latency for a 1KB document write operation observed in South Central US in the 99th percentile.
 
-    ![](img/latency2.jpg)
+    ![](images/latency2.jpg)
 
     #### Charts included under Consistency menu.
 
 1. Click on **Consistency** menu to view the graphs.
 1. The first graph displays **Empirical probability of a consistent read in read region as a function of time since the corresponding write commit in write region, observed over the past hour.**
 
-    ![](img/empirical_portability.png)
+    ![](images/empirical_portability.png)
 
 1. This chart shows **distribution of the observed replication latency in {0}, i.e. the difference between time when the data write was committed in {1} and the time when the data became available for read in {0}.**
 

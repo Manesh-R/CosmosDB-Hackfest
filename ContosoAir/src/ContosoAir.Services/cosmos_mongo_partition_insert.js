@@ -1,4 +1,4 @@
-﻿// private variable's Declaration
+// private variable's Declaration
 var fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
 var config = require('./config')
@@ -6,20 +6,13 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 var connectionString = config.MONGO_DB_CONNECTION_STRING;
 
-var feedback_data_to_import = JSON.parse(fs.readFileSync('./api/feedback/feedback.data.json', 'utf8'));
 var flights_data_to_import = JSON.parse(fs.readFileSync('./api/flights/flights.data-utf8.json', 'utf8'));
-var seats_data_to_import = JSON.parse(fs.readFileSync('./api/seats/seats.data-utf8.json', 'utf8'));
-var deals_data_to_import = JSON.parse(fs.readFileSync('./api/deals/deals.data-utf8.json', 'utf8'));
-var booking_data_to_import = JSON.parse(fs.readFileSync('./api/booking/booking.data-utf8.json', 'utf8'));
+
 
 // Functions Declaration
 
 var insertDocumentsToCollections = function (db, callback) {
-    insertDocument(db, config.MONGO_DB_COLLECTION, feedback_data_to_import, function () { });
-    insertDocument(db, config.DOCUMENT_DB_FLIGHT, flights_data_to_import, function () { });
-    insertDocument(db, config.DOCUMENT_DB_SEAT, seats_data_to_import, function () { });
-    insertDocument(db, config.DOCUMENT_DB_DEAL, deals_data_to_import, function () { });
-    insertDocument(db, config.DOCUMENT_DB_BOOKING, booking_data_to_import, function () { });
+    insertDocument(db, config.Mongo_DB_FLIGHT_Partitioned, flights_data_to_import, function () { });
 }
 
 // Insert Feedback data into MongoDB Database

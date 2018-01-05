@@ -246,7 +246,7 @@
       },
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Standard_D2_V2"
+          "vmSize": "Standard_DS2_v2"
         },
         "osProfile": {
           "computerName": "[parameters('jumpVirtualMachineName')]",

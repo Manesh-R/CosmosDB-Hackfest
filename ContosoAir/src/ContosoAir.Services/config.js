@@ -14,5 +14,6 @@ module.exports = {
     AZURE_FUNCTION_DEALS_URL:     '',
 	                              
     MONGO_DB_CONNECTION_STRING:   'mongodb://localhost:27017/contosoairdb3',
-    MONGO_DB_COLLECTION: 'feedbackdb'
+    MONGO_DB_COLLECTION: 'feedbackdb',
+    Mongo_DB_FLIGHT_Partitioned: 'FlightsCollectionPartitioned'
 };

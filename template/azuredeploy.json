@@ -255,7 +255,7 @@
         },
         "storageProfile": {
           "imageReference": {
-            "id": "/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-jumpimage/providers/Microsoft.Compute/images/cosmosdb-jumpimage"
+            "id": "/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-jumpimage/providers/Microsoft.Compute/images/cosmos-jumpimage"
           },
           "osDisk": {
             "createOption": "FromImage",

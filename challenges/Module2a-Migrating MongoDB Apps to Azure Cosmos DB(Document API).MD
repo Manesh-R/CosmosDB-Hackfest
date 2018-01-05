@@ -3,42 +3,74 @@
 ### 1.1 Understand Flight reservation application 
 #### 1.1.1	Access Jump VM 
 1. From azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
+
 <img src="images/jumpvm1.jpg"/><br/>
+
 2. Click on start button and search for **Remote Desktop Connection** and click on it.
+
 3. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied in above step.
+
 <img src="images/rdc.jpg"/><br/>
+
 4. Click on **Yes** button in Remote Desktop Connection Wizard.
 
 <img src="images/rdc2.jpg"/><br/>
+
 5. Enter the credentials provided in the mail to connect to VM.
 
 <img src="images/xrdp.jpg"/><br/>
+
 #### 1.1.2	Launch VS Code and understand application components and hierarchy 
+
 1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
+
 <img src="images/jumpvm2.jpg"/><br/>
+
 2. Now, in ContosoAirServices double click on the config.json from the Explorer file to open.
+
 <img src="images/jumpvm3.jpg"/><br/>
-3. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services. Click right side of mouse and click on **Open Terimal Here** as shown below.
+
+3. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services. Click right side of 
+mouse and click on **Open Terimal Here** as shown below.
+
 <img src="images/jumpvm4.jpg"/><br/>
+
 4. You can start the mongo set-up and verify the mongoDB database while running the mongo as shown below:
+
 <img src="images/mongo.jpg"/><br/>
+
 5. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(meanstacktutorials) for future use.
-``cmd
+``
 show dbs 
+``
+``
 use <db_name>
+``
+``
 show collections
 ``
 <img src="images/mongodb.jpg"/><br/>
+
 5. Run **npm start** command.
+
 <img src="images/jumpvm5.jpg"/><br/>
+
 6. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
+
 <img src="images/jumpvm6.jpg"/><br/>
+
 7. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
+
 8. You will see the sign-up page. Enter your microsoft Credential here.  
+
 <img src="images/signup.jpg"/><br/>
+
 9. Once you get login, you will be redirected to **ContosoAir app**.
+
 <img src="images/contoso1.jpg"/><br/>
+
 10. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
+
 <img src="images/contoso2.jpg"/><br/>
  
    > **Note:** If the browser refresh continuously then please open the **localhost URL** [http://localhost:4200](http://localhost:4200) in different browser i.e. **Edge browser** <br/>
@@ -46,40 +78,50 @@ show collections
 ## 2. Create CosmosDB and Migrate Database
 ### 2.1 Create CosmosDbB with Mongo API
 1. Open Azure Portal with your credential and Click on Add button.
+
 <img src="images/addcosmos.jpg"/><br/>
+
 2. Search for Azure Cosmos DB and Select it.
 
 <img src="images/cosmos1.jpg"/><br/>
 3. Click on create button.
 
 <img src="images/cosmos2.jpg"/><br/>
-4. Provie the following parameters and Click on Create button:
-* **ID**: Unique ID for cosmos name
-* **API**: Select **MongoDB**
-* **Resource Group**: use existing rsource group
+4. 5.	Populate the below parameters as shown below.
+* **ID**:(any valid name)
+* **API**: select Mongo DB from the dropdown.
+* **Resource Group**: Choose use existing Resource Group.
 
 <img src="images/cosmosdb1.jpg"/><br/>
-5. Once deployment get succeed Click On **Go to resource**.
+
+5.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.
 
 <img src="images/cosmosdb2.jpg"/><br/>
-6. Scroll Down to connection String and copy Host, Username, Primary Key and Primary Connection String for futher use.
+
+7. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use
 <img src="images/cosmosdb3.jpg"/><br/>
+
 ### 2.2 Migrate Database and Run the application
 1.	Once, you get connected to your JumpVM. Use the below command to export the data from JumpVM.
 
 ``
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
-
+``
+``
 sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollection --out DealsCollection.bkp
-
+``
+``
 sudo mongoexport --host localhost --db contosoairdb3 --collection FlightsCollection --out FlightsCollection.bkp
-
+``
+``
 sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollection --out SeatsCollection.bkp
-
+``
+``
 sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
 ``
 
 <img src="images/allexport.jpg"/><br/>
+
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
 
 ``
@@ -87,13 +129,14 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 ``
 
 <img src="images/importall.jpg"/><br/>
+
 3. Switch to Azure Portal as launched in Part A, navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on Azure Cosmos DB Account named.
 
-4. Click on Data Explorer option. It will display the collection created in Azure Cosmos DB Account.
+4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account.
 
 <img src="images/collections.jpg"/><br/>
 
-5. Go back to Visual Studio Code IDE and paste the URI value against DOCUMENT_DB_ENDPOINT, PRIMARY KEY against DOCUMENT_DB_PRIMARYKEY  Primary Connection String Against MONGO_DB_COONECTION_STRING(add database name before question mark in primary connection string) as in the config.js.
+5. Go back to Visual Studio Code IDE and paste the URI value against **DOCUMENT_DB_ENDPOINT**, PRIMARY KEY against **DOCUMENT_DB_PRIMARYKEY** and Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name before question mark in primary connection string) as in the config.js.
 
 ``
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
@@ -101,9 +144,9 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 
 <img src="images/config.jpg"/><br/>
 
-6. Navigate back to the Azure Portal's Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on Azure Cosmos DB Account then, click on Replicate data globally option present under SETTINGS section in Cosmos DB Account blade.
+6. Navigate back to the **Azure Portal's** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.
 
-7. Copy the WRITE REGION and paste it against DOCUMENT_DB_PREFERRED_REGION key in config.js file which is already opened in Visual Studio Code IDE and save this file.
+7. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.
 
 8. Now, to start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services. Click right side of mouse and click on **Open Terimal Here** as shown below.
 

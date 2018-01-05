@@ -1,6 +1,7 @@
 
 # Lab1: Introduction to Cosmos DB
 ## 1.	Introduction to Azure Cosmos DB
+
 ### 1.1	Create Cosmos DB Account with SQL API
 1.	**Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.	To toggle show/hide the Portal menu options with icon, Click on the **Show Menu** button.<br/>     
@@ -40,9 +41,11 @@
     - Throughput : **1000**<br/>
     Click on **OK**.<br/>
 <img src="images/addcollectioninfo.jpg"/><br/>    
-### 1.3	Load the Data in to the Cosmos DB.
+### 1.3	Load the Data in to  Cosmos DB.
 #### 1.3.1	Access Windows VM and Launch Data migration tool.
-1.  Download the data which we want to migrate into cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/>
+
+
+1.  Access PowerBI VM(Windows) via RDP, Open Internet Explorer inside the Windows VM and download the data which we would  migrate to cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/>
 A zip file will download, extract and open the file to view the json data set.<br/>
 2.  **Launch** your **data migration tool** by opening the **dtui.exe** application.<br/>
 <img src="images/migrationtool.jpg"/><br/>   
@@ -132,7 +135,7 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 <img src="images/replicationsave.jpg"/><br/>
 ### 3.  PowerBI
 #### 3.1 Connect PowerBI desktop to CoasmosDB
-1. Access Windows VM and Run **Power BI Desktop**.
+1. Access Windows VM and Run **Power BI Desktop** application available on desktop.
 2. Once Power BI Desktop is launched, a Welcome screen is displayed. Provide the information and Click on **Done**.
 <img src="images/welcomepage.jpg"/><br/>
 3. The Report view of Power BI Desktop is displayed. Select the **Home** ribbon, then click on **Get Data**. The Get Data window should appear.

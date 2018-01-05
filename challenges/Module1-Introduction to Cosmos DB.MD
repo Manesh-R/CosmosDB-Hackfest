@@ -89,7 +89,7 @@ A zip file will download, extract and open the file to view the json data set.<b
      <img src="images/importtodb.jpg"/><br/>
 18.  Now the import will start.It will take a couple of minutes to complete.
      <img src="images/exportStatus.jpg"/><br/>
-### 1.4	Use Data Explorer to interact with collection
+### 1.4	Use Data Explorer to interact with Cosmos DB database
 #### 1.4.1	Verify Data in Azure Portal
 1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.  Click on the **Resource Group** icon on the **Menu navigation bar**.<br/>
@@ -139,10 +139,10 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
    > - You can distribute your data to any number of Azure regions, with the click of a button. This enables you to put your data where your users are, ensuring the lowest possible latency to your customers.  
    > - Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and sends requests to the nearest data center. All of this is possible with no config changes. You set your write-region and as many read-regions as you want, and the rest is handled for you for more details click on given link [https://docs.microsoft.com/en-us/azure/cosmos-db/introduction](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
    
- #### 2.1  Region Failover
+ #### 2.2  Region Failover
  Cosmos DB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures.
  
- #### Automatic Failover
+ #### 2.3 Automatic Failover
 
 1. In the rare event of an **Azure regional outage**, **data center outage**, Cosmos DB automatically **triggers failovers** of all Cosmos DB accounts with a presence in the affected region.
 1. Cosmos DB accounts with a **read region** in one of the affected regions are automatically disconnected from their **write** region and **marked** offline.
@@ -168,7 +168,7 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 
    > _Given is the concept of Automatic failover. Now let's dive into the concept of Manual failover._
 
-#### Manual Failover
+#### 2.4 Manual Failover
 
 1. In addition to **automatic failovers**, the current **write region** of a given Cosmos DB account can be manually changed dynamically to one of the existing **read regions**.
 1. Manual failovers ensure  **zero data loss**  and  **zero availability loss** and gracefully transfer write status from the old write region to the new one for the specified Cosmos DB account.
@@ -187,8 +187,8 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 
 > _In this article, we understood how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be globally available. By using Cosmos DB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures._
  
-### 3.  PowerBI
-#### 3.1 Connect PowerBI desktop to CoasmosDB
+### 3.  Cosmos DB Data Analysis with Cosmos 
+#### 3.1 Add Cosmos DB as data Source
 1. Access Windows VM and Run **Power BI Desktop** application available on desktop.
 2. Once Power BI Desktop is launched, a Welcome screen is displayed. Provide the information and Click on **Done**.
 <img src="images/welcomepage.jpg"/><br/>
@@ -214,7 +214,7 @@ Leave the database name, collection name, and SQL statement blank as these field
     The Preview pane shows a list of Record items. A Document is represented as a Record type in Power BI. Similarly, a nested       JSON block inside a document is also a Record.
     <img src="images/navigator.jpg"/><br/>
 12. **Click** Edit to launch the Query Editor in a new window to transform the data.
-#### 3.2 Flattening and transforming JSON documents
+#### 3.2 Flattening, transforming JSON documents and developing dashboards
 1. Switch to the Power BI Query Editor window, where the Document column in the center pane. 
 <img src="images/queryeditor.jpg"/><br/>
 2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Count of Document.Shares Outstanding,etc and then click **OK**.

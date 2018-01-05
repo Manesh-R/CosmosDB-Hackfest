@@ -90,8 +90,8 @@ show collections
  
 
 
-## 2. Create CosmosDB and Migrate Database
-### 2.1 Create CosmosDbB with Mongo API
+## 2. Migrate Application to Cosmos DB
+### 2.1 Create Cosmos DB with Mongo API
 1. Open Azure Portal with your credential and Click on Add button.
 
 <img src="images/addcosmos.jpg"/><br/>
@@ -104,7 +104,7 @@ show collections
 <img src="images/cosmos2.jpg"/><br/>
 4. 5.	Populate the below parameters as shown below.
 * **ID**:(any valid name)
-* **API**: select Mongo DB from the dropdown.
+* **API**: select **Mongo DB** from the dropdown.
 * **Resource Group**: Choose use existing Resource Group.
 
 <img src="images/cosmosdb1.jpg"/><br/>
@@ -116,8 +116,10 @@ show collections
 7. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use
 <img src="images/cosmosdb3.jpg"/><br/>
 
-### 2.2 Migrate Database and Run the application
-1.	Once, you get connected to your JumpVM. Use the below command to export the data from JumpVM.
+### 2.2 Migrate Database to Azure Cosmos DB
+In this exercise, We will use mongoexport to export the data from MongoDB running locally in the jump-VM and then we will use mongoimport to insert this dataset into newly created Cosmos DB.
+
+1.	Open Terminal on Jump VM,(Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file. 
 
 ```bash
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
@@ -132,18 +134,30 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --o
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
 
 ```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db <db_name> --collection todos --file <BackupFileName>
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
+
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection DealsCollection --file DealsCollection.bkp
+
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
+
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
+
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection feedbackdb --file feedbackdb.bkp
 ```
 
 <img src="images/importall.jpg"/><br/>
 
-3. Switch to Azure Portal as launched in Part A, navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on Azure Cosmos DB Account named.
 
-4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account.
+3. Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.
+
+4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.
 
 <img src="images/collections.jpg"/><br/>
 
-5. Go back to Visual Studio Code IDE and paste the URI value against **DOCUMENT_DB_ENDPOINT**, PRIMARY KEY against **DOCUMENT_DB_PRIMARYKEY** and Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name before question mark in primary connection string) as in the config.js.
+### 2.3 Update Application to use Cosmos DB 
+
+
+1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
@@ -151,52 +165,45 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 
 <img src="images/config.jpg"/><br/>
 
-6. Navigate back to the **Azure Portal's** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.
+1. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.
 
-7. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.
+1. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.
 
-8. Now, to start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services. Click right side of mouse and click on **Open Terimal Here** as shown below.
+1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**
 
 <img src="images/jumpvm4.jpg"/><br/>
 
-9. Run **npm start** command.
-
 <img src="images/jumpvm5.jpg"/><br/>
 
-10. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
+1. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
+if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
 
 <img src="images/jumpvm6.jpg"/><br/>
 
-11. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
 
-12. You will see the sign-up page. Enter your microsoft Credential here. 
+1. You will see the sign-up page. Enter your microsoft Credential here. 
 
 <img src="images/signup.jpg"/><br/>
 
-13. Once you get login, you will be redirected to **ContosoAir app**.
+1. Once you get login, you will be redirected to **ContosoAir app**.
 
 <img src="images/contoso1.jpg"/><br/>
 
-14. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
+1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
 
 <img src="images/contosotime.jpg"/><br/>
 
+You should notice that latency is now changed when loading the flight data
 
-   > _Awesome, you have started the application locally using the local MongoDB database.
+   > _Awesome, you have migrated your application database from local MongoDB instance to Azure Cosmos DB and your application is now using Cosmos DB.
 
-
-# Migrate MongoDB database to Azure Cosmos DB with Mongo API
-
-## Migrate Database
-
-## Update and test Application
 
 # Cosmos DB Concepts
 
-## Partitioning
-<page title="Partitioning"/>
+## Scenario 3: Partitioning
 
-## Scenario 4: Concept of Logical Partitioning
+## Concept of Logical Partitioning
 
 1. In **Azure Cosmos DB**, you can store and query schema-less data with order-of-millisecond response times at any scale.
 1. Azure Cosmos DB provides **containers** for storing data called **collection.** **Containers** are logical resources and can span one or more physical partitions or servers.
@@ -232,13 +239,11 @@ Configure FlightsCollection data to leverage the Partitions
 
 > Awesome! In this scenario, you learned the Partitioning feature of  Azure Cosmos DB.
 
-## Global Distribution
+## Scenario 4: Global Distribution
 
-## Consistency 
+To be Added
 
-# Cosmos DB Change Feed
-
-## Create an Azure function
+# Scenario 5: Integration with Azure Functions
 
 ## Create a function with Deal Data
 
@@ -309,14 +314,13 @@ Configure FlightsCollection data to leverage the Partitions
     ![](img/url.jpg)
 1. Click on **Copy** ![](img/Copy.jpg) icon to copy the given URL and paste it against **AZURE\_FUNCTION\_DEALS\_URL:** variable in **config.js file** opened in **Visual Studio 2017** IDE and save the file.
 
-   > _Awesome, you have created Azure Function for Deals data._
+   > _Awesome, you have created Azure Function for Deals data and integrated with Cosmos DB._
 
-## Integrate Azure functions with Cosmos DB
 
-# Operations: Monitoring, Security and Backup & Restore
+# Scenario 6: Azure Cosmos DB Operations: Monitoring, Security and Backup & Restore
 
-## Understand Monitoring, Charts and reports
-## Azure Cosmos DB Service Level Agreements
+## Understanding Cosmos DB Monitoring and SLA's
+### Azure Cosmos DB Service Level Agreements
 
 Cloud service offering a comprehensive SLA for:
 
@@ -405,7 +409,7 @@ Cloud service offering a comprehensive SLA for:
 
 >_Excellent job! Congratulations you successfully deep dived into the features of_ **Azure Cosmos DB** _._
 
-## Configure  Firewall	
+## Securing Cosmos DB with Firewall
 To secure data stored in an Azure Cosmos DB database account, Azure Cosmos DB has provided support for a secret based authorization model that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. This model is similar to the firewall rules of a traditional database system and provides an additional level of security to the Azure Cosmos DB database account. With this model, you can now configure an Azure Cosmos DB database account to be accessible only from an approved set of machines and/or cloud services. Access to Azure Cosmos DB resources from these approved sets of machines and services still require the caller to present a valid authorization token.
 
 #### IP Access Control Overview
@@ -431,7 +435,7 @@ Here you should see the current throughput and options to increase/decrease the 
     ![](images/scalethroughput.png)
 
 
-## Understand Backup and restore functionality.
+## Understanding Cosmos DB Backup and restore functionality.
 
 Azure Cosmos DB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your Cosmos DB container and later require data recovery or a disaster recovery solution.
 These automated backups are currently taken approximately every four hours and latest 2 backups are stored at all times. If the data is accidentally dropped or corrupted, please contact Azure support within eight hours.

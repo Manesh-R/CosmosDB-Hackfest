@@ -40,15 +40,11 @@ mouse and click on **Open Terimal Here** as shown below.
 <img src="images/mongo.jpg"/><br/>
 
 5. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(meanstacktutorials) for future use.
-``
+```bash
 show dbs 
-``
-``
 use <db_name>
-``
-``
 show collections
-``
+```
 <img src="images/mongodb.jpg"/><br/>
 
 5. Run **npm start** command.
@@ -104,29 +100,21 @@ show collections
 ### 2.2 Migrate Database and Run the application
 1.	Once, you get connected to your JumpVM. Use the below command to export the data from JumpVM.
 
-``
+```bash
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
-``
-``
 sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollection --out DealsCollection.bkp
-``
-``
 sudo mongoexport --host localhost --db contosoairdb3 --collection FlightsCollection --out FlightsCollection.bkp
-``
-``
 sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollection --out SeatsCollection.bkp
-``
-``
 sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
-``
+```
 
 <img src="images/allexport.jpg"/><br/>
 
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
 
-``
+```bash
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db <db_name> --collection todos --file <BackupFileName>
-``
+```
 
 <img src="images/importall.jpg"/><br/>
 
@@ -138,9 +126,9 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 5. Go back to Visual Studio Code IDE and paste the URI value against **DOCUMENT_DB_ENDPOINT**, PRIMARY KEY against **DOCUMENT_DB_PRIMARYKEY** and Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name before question mark in primary connection string) as in the config.js.
 
-``
+```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
-``
+```
 
 <img src="images/config.jpg"/><br/>
 

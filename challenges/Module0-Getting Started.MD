@@ -12,10 +12,10 @@ In this lab, you will be deploying pre-requisite infrastructure which is require
 
 ### Exercise 1: Log into your Azure Portal
 In this exercise, you will log into the Azure Portal using your Azure credentials.
-1.	Launch a browser and Navigate to https://portal.azure.com. Provide the credentials that your received via email. Click on Sign In.
+1.	**Launch** a browser and **Navigate** to https://portal.azure.com. Provide the credentials that your received via email. Click on **Sign In**.
 
 <img src="images/module1.jpg"/><br/>
-2. Enter a new password. Then select Update password and sign in.
+2. Enter a new **password**. Then select **Update password and sign in**.
 
 <img src="images/module2.jpg"/><br/>
 3. Now, you will be directed to the Azure Dashboard.
@@ -24,23 +24,26 @@ In this exercise, you will log into the Azure Portal using your Azure credential
 
 ### Exercise 2: Verify access to the Subscription
 In this exercise, you will verify the type of role you are assigned in this Subscription.
-1.	Launch a browser and Navigate to https://portal.azure.com. Login with your Microsoft Azure credentials.
+1.	**Launch** a browser and **Navigate** to https://portal.azure.com. Login with your **Microsoft Azure** credentials.
 
 <img src="images/module4.jpg"/><br/>
-2. Click on Microsoft Azure  at the top left corner of the screen, to view the Dashboard.
+2. Click on **Microsoft Azure**  at the top left corner of the screen, to view the Dashboard.
 <img src="images/module5.jpg"/><br/>
-3. To toggle show/hide the Portal menu options with icon, Click on the Show Menu button.
+3. To toggle **show/hide** the Portal menu options with icon, **Click** on the **Show Menu** button.
 <img src="images/module6.jpg"/><br/>
-4. Click on the Resource groups button in the Menu navigation bar to view the Resource groups blade.
+4. **Click** on the **Resource groups** button in the **Menu navigation** bar to view the Resource groups blade.
 <img src="images/module7.jpg"/><br/>
-5. You will see two Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on Overview tab and finally on VM.
+5. You will see one Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on **Overview** tab and finally on VM.
 <img src="images/module8.jpg"/><br/>
+6. In **Overview** section, click on **Connect** button. It will show username with IP address copy that IP address.
+
+<img src="images/jumpconnect.jpg"/><br/>
 6. Click on start button and search for **Remote Desktop Connection** and click on it.
 
-7. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied in above step.
+7. **Remote Desktop Connection** window will pop-up in that provide the IP Address that you copied in above step.
 
 <img src="images/rdc.jpg"/><br/>
-8. Click on **Yes** button in Remote Desktop Connection Wizard.
+8. **Click** on **Yes** button in Remote Desktop Connection Wizard.
 
 <img src="images/rdc2.jpg"/><br/>
 9. Enter the credentials provided in the mail to connect to VM.

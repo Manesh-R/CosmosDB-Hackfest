@@ -52,9 +52,9 @@ show collections
 3. Click on create button.
 <img src="images/cosmos2.jpg"/><br/>
 4. Provie the following parameters and Click on Create button:
-**ID**: Unique ID for cosmos name
-**API**: Select **MongoDB**
-**Resource Group**: use existing rsource group
+* **ID**: Unique ID for cosmos name
+* **API**: Select **MongoDB**
+* **Resource Group**: use existing rsource group
 <img src="images/cosmosdb1.jpg"/><br/>
 5. Once deployment get succeed Click On **Go to resource**.
 <img src="images/cosmosdb2.jpg"/><br/>
@@ -62,7 +62,7 @@ show collections
 <img src="images/cosmosdb3.jpg"/><br/>
 ### 2.2 Migrate Database and Run the application
 1.	Once, you get connected to your JumpVM. Use the below command to export the data from JumpVM.
-``
+``cmd
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
 
 sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollection --out DealsCollection.bkp
@@ -75,14 +75,18 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --o
 ``
 <img src="images/allexport.jpg"/><br/>
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
-``
+``cmd
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db <db_name> --collection todos --file <BackupFileName>
 ``
 <img src="images/importall.jpg"/><br/>
 3. Switch to Azure Portal as launched in Part A, navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on Azure Cosmos DB Account named .
 4. Click on Data Explorer option. It will display the collection created in Azure Cosmos DB Account.
-<img src="images/collection.jpg"/><br/>
+
+<img src="images/collections.jpg"/><br/>
 5. Go back to Visual Studio Code IDE and paste the URI value against DOCUMENT_DB_ENDPOINT, PRIMARY KEY against DOCUMENT_DB_PRIMARYKEY  Primary Connection String Against MONGO_DB_COONECTION_STRING(add database name before question mark in primary connection string) as in the config.js.
+``cmd
+mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
+``
 <img src="images/config.jpg"/><br/>
 6. Navigate back to the Azure Portal's Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on Azure Cosmos DB Account then, click on Replicate data globally option present under SETTINGS section in Cosmos DB Account blade.
 7. Copy the WRITE REGION and paste it against DOCUMENT_DB_PREFERRED_REGION key in config.js file which is already opened in Visual Studio Code IDE and save this file.

@@ -1,17 +1,56 @@
-# Intro to Azure CosmosDB
-### How to
-1. Using your browser go to the Registration Site listed in your classroom.
-    * Please make sure you use a valid work email as it will not allow for commercial e-mail domains.
-        * ![SignUp](./images/signup.png) 
-    * Once you select submit, **DO NOT CLOSE THE BROWSER**.
-    * On the Lab and Overview page, navigate to the Lab tab and then select Launch Lab
-        * ![Overview](./images/overview.png)
-        * ![Launch Lab](./images/launch.png)        
-    * The Lab will begin to deploy. **DO NOT CLOSE THE BROWSER**. This will take some time but the needed credentials will be presented on the page when the provisioning is complete.
-        * ![Preparing Lab](./images/preparing.png)       
-    * Your credentials will be emails to your signup email address as well as presented on the screen
-        * ![Credentials](./images/creds-email.png)        
+# CosmosDB-Hackfest
+## Lab 1: Getting Started with Azure
+### Lab Overview
+In this lab, you will be deploying pre-requisite infrastructure which is required for CosmosDB Hackfest.
+#### Prerequisites
+* Windows or a Mac machine with HTML5 supported browser such as Microsoft Edge, Internet Explorer, Chrome or Firefox.
+* You should have registered in the training portal https://azuretraining.spektrasystems.com and received the confirmation message with the credentials to login to the Azure portal.
 
-2. Launch your RDP client of choice and enter the url of the jump-box provided for you. Use the AdminUsername and AdminPassword provided in your email
-    *  ![Jumpbox Credentials](./images/jumpboxinfo.png)
-    * It may take a minute or so at first launch to get the desktop to present. This is normal at first log in.
+<img src="images/module.jpg"/><br/>
+#### Time Estimate
+45 minutes
+
+### Exercise 1: Log into your Azure Portal
+In this exercise, you will log into the Azure Portal using your Azure credentials.
+1.	**Launch** a browser and **Navigate** to https://portal.azure.com. Provide the credentials that your received via email. Click on **Sign In**.
+
+<img src="images/module1.jpg"/><br/>
+2. Enter a new **password**. Then select **Update password and sign in**.
+
+<img src="images/module2.jpg"/><br/>
+3. Now, you will be directed to the Azure Dashboard.
+
+<img src="images/module3.jpg"/><br/>
+
+### Exercise 2: Verify access to the Subscription
+In this exercise, you will verify the type of role you are assigned in this Subscription.
+1.	**Launch** a browser and **Navigate** to https://portal.azure.com. Login with your **Microsoft Azure** credentials.
+
+<img src="images/module4.jpg"/><br/>
+2. Click on **Microsoft Azure**  at the top left corner of the screen, to view the Dashboard.
+<img src="images/module5.jpg"/><br/>
+3. To toggle **show/hide** the Portal menu options with icon, **Click** on the **Show Menu** button.
+<img src="images/module6.jpg"/><br/>
+4. **Click** on the **Resource groups** button in the **Menu navigation** bar to view the Resource groups blade.
+<img src="images/module7.jpg"/><br/>
+5. You will see one Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on **Overview** tab and finally on VM.
+<img src="images/module8.jpg"/><br/>
+6. In **Overview** section, click on **Connect** button. It will show username with IP address copy that IP address.
+
+<img src="images/jumpconnect.jpg"/><br/>
+6. Click on start button and search for **Remote Desktop Connection** and click on it.
+
+7. **Remote Desktop Connection** window will pop-up in that provide the IP Address that you copied in above step.
+
+<img src="images/rdc.jpg"/><br/>
+8. **Click** on **Yes** button in Remote Desktop Connection Wizard.
+
+<img src="images/rdc2.jpg"/><br/>
+9. Enter the credentials provided in the mail to connect to VM.
+
+<img src="images/xrdp.jpg"/><br/>
+10. You will see the Ubuntu OS as shown below:
+
+<img src="images/module9.jpg"/><br/>
+
+    > Note If you get err:connecting at first login: Click OK and try again.

@@ -23,7 +23,7 @@
 4. You can start the mongo set-up and verify the mongoDB database while running the mongo as shown below:
 <img src="images/mongo.jpg"/><br/>
 5. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(meanstacktutorials) for future use.
-``
+``cmd
 show dbs 
 use <db_name>
 show collections
@@ -67,7 +67,7 @@ show collections
 ### 2.2 Migrate Database and Run the application
 1.	Once, you get connected to your JumpVM. Use the below command to export the data from JumpVM.
 
-``cmd
+``
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
 
 sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollection --out DealsCollection.bkp

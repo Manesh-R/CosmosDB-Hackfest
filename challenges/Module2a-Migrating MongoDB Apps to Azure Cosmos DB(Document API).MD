@@ -261,6 +261,29 @@ Cloud service offering a comprehensive SLA for:
 >_Excellent job! Congratulations you successfully deep dived into the features of_ **Azure Cosmos DB** _._
 
 ## Configure  Firewall	
+To secure data stored in an Azure Cosmos DB database account, Azure Cosmos DB has provided support for a secret based authorization model that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. This model is similar to the firewall rules of a traditional database system and provides an additional level of security to the Azure Cosmos DB database account. With this model, you can now configure an Azure Cosmos DB database account to be accessible only from an approved set of machines and/or cloud services. Access to Azure Cosmos DB resources from these approved sets of machines and services still require the caller to present a valid authorization token.
+
+#### IP Access Control Overview
+
+By default, an Azure Cosmos DB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list are blocked by the server. The connection processing flow for the IP-based access control is described in the following diagram:
+
+  ![](https://docs.microsoft.com/en-us/azure/cosmos-db/media/firewall-support/firewall-support-flow.png)
+  
+ To set the IP access control policy in the Azure portal, navigate to the Azure Cosmos DB account page, click **Firewall** in the navigation menu, then change the Enable IP Access Control value to **ON**. Once IP access control is on, the portal provides switches to enable access to the Azure portal, other Azure services, and the current IP.
+ 
+   ![](https://docs.microsoft.com/en-us/azure/cosmos-db/media/firewall-support/azure-portal-firewall-configure.png)
+   
+As a part of Lab, You may want to restrict access to your Database from the Linux VM where application is running and from Windows VM where PowerBI is running.
+
+
+
+
+
+ 
+   ![](https://docs.microsoft.com/en-us/azure/cosmos-db/media/firewall-support/azure-portal-firewall.png)
+
+
+
 
 ## Understand Scaling
 

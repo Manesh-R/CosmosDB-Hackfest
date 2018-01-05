@@ -246,7 +246,7 @@
       },
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Standard_D2_V2"
+          "vmSize": "Standard_DS2_v2"
         },
         "osProfile": {
           "computerName": "[parameters('jumpVirtualMachineName')]",
@@ -260,7 +260,7 @@
           "osDisk": {
             "createOption": "FromImage",
               "managedDisk": {
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "Premium_LRS"
             }
           },
           "dataDisks": [
@@ -358,11 +358,11 @@
       "type": "string",
       "value": "[parameters('adminPassword')]"
     },
-    "jumpPublicIP": {
+    "JumpVMDnsName": {
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('jumpPublicIPAddressName'))).dnsSettings.fqdn]",
       "type": "string"
     },
-    "powerBIPublicIP": {
+    "powerBIVMDnsName": {
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('powerBIPublicIPAddressName'))).dnsSettings.fqdn]",
       "type": "string"
     }

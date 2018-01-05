@@ -1,6 +1,7 @@
 
 # Lab1: Introduction to Cosmos DB
 ## 1.	Introduction to Azure Cosmos DB
+
 ### 1.1	Create Cosmos DB Account with SQL API
 1.	**Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.	To toggle show/hide the Portal menu options with icon, Click on the **Show Menu** button.<br/>     
@@ -40,9 +41,11 @@
     - Throughput : **1000**<br/>
     Click on **OK**.<br/>
 <img src="images/addcollectioninfo.jpg"/><br/>    
-### 1.3	Load the Data in to the Cosmos DB.
+### 1.3	Load the Data in to  Cosmos DB.
 #### 1.3.1	Access Windows VM and Launch Data migration tool.
-1.  Download the data which we want to migrate into cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/>
+
+
+1.  Access PowerBI VM(Windows) via RDP, Open Internet Explorer inside the Windows VM and download the data which we would  migrate to cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/>
 A zip file will download, extract and open the file to view the json data set.<br/>
 2.  **Launch** your **data migration tool** by opening the **dtui.exe** application.<br/>
 <img src="images/migrationtool.jpg"/><br/>   
@@ -86,7 +89,7 @@ A zip file will download, extract and open the file to view the json data set.<b
      <img src="images/importtodb.jpg"/><br/>
 18.  Now the import will start.It will take a couple of minutes to complete.
      <img src="images/exportStatus.jpg"/><br/>
-### 1.4	Use Data Explorer to interact with collection
+### 1.4	Use Data Explorer to interact with Cosmos DB database
 #### 1.4.1	Verify Data in Azure Portal
 1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.  Click on the **Resource Group** icon on the **Menu navigation bar**.<br/>
@@ -117,8 +120,10 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 <img src="images/queryrun.jpg"/><br/>
 4.  Now we can see all the data with **Sector = Financial**<br/>
 <img src="images/query_op.jpg"/><br/>
-### 2.  Geo-Replication
-#### 2.1   Create replication in multiple regions
+### 2.  Distribute Data Globally
+   > Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
+   
+#### 2.1   Enable Database Replication 
 1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 2.  Select the **Azure Cosmos DB account(i.e,cosmosdb321)**.<br/>
 3.  In the Cosmos DB account page click on **Replicate data globally** tab under the **Settings** tile.<br/> 
@@ -130,9 +135,61 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 6.  If you want to add more regions, click on Add new region again and select the required region and click on **Save**.
 <img src="images/addregion2.jpg"/><br/>
 <img src="images/replicationsave.jpg"/><br/>
-### 3.  PowerBI
-#### 3.1 Connect PowerBI desktop to CoasmosDB
-1. Access Windows VM and Run **Power BI Desktop**.
+
+   > - You can distribute your data to any number of Azure regions, with the click of a button. This enables you to put your data where your users are, ensuring the lowest possible latency to your customers.  
+   > - Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and sends requests to the nearest data center. All of this is possible with no config changes. You set your write-region and as many read-regions as you want, and the rest is handled for you for more details click on given link [https://docs.microsoft.com/en-us/azure/cosmos-db/introduction](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+   
+ #### 2.2  Region Failover
+ Cosmos DB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures.
+ 
+ #### 2.3 Automatic Failover
+
+1. In the rare event of an **Azure regional outage**, **data center outage**, Cosmos DB automatically **triggers failovers** of all Cosmos DB accounts with a presence in the affected region.
+1. Cosmos DB accounts with a **read region** in one of the affected regions are automatically disconnected from their **write** region and **marked** offline.
+1. The **Cosmos DB SDK** implement a regional discovery protocol that allows them to automatically detect when a region is available and redirect read calls to the next available region in the **preferred region** list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
+1. Once the affected region recovers from the outage, all the affected Cosmos DB accounts in the region are automatically recovered by the service. Cosmos DB accounts that had a read region in the affected region will then automatically sync with current write region and turn **online**.
+1. The **Cosmos DB SDK** discover the availability of the new region and evaluate whether the region should be selected as the current read region based on the **preferred region list** configured by the application.
+
+   > _Now let's see how to change priorities of preferred region list._
+
+1. Navigate to **Azure Portal's** **Resource groups** option present in the favourites menu on the left side panel and select the resource group **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>**" and click on **Azure Cosmos DB Account** **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>"**.
+1. Click on **Replicate data globally** option present under **Cosmos DB Account** blade. Then click on **Automatic Failover** menu present on the top of the page.
+
+   ![](images/automaticFailover.jpg)
+
+1. If the affected region is the current write region and automatic failover is enabled for the **Azure Cosmos DB account**, then the region is automatically marked as **offline**. Then, an alternative region is promoted as the **write** region for the affected **Azure Cosmos DB account**.
+1. Once you get redirected to **Automatic Failover** page, click **ON** button to enable automatic failover.
+1. Drag-and-drop read regions items to reorder the failover priorities.
+
+    ![](images/failover2.jpg)
+
+1. Click **OK** button to save the changes made.
+1. Once the affected region recovers from the **outage**, all the affected Cosmos DB accounts in the region are automatically recovered by the service.
+
+   > _Given is the concept of Automatic failover. Now let's dive into the concept of Manual failover._
+
+#### 2.4 Manual Failover
+
+1. In addition to **automatic failovers**, the current **write region** of a given Cosmos DB account can be manually changed dynamically to one of the existing **read regions**.
+1. Manual failovers ensure  **zero data loss**  and  **zero availability loss** and gracefully transfer write status from the old write region to the new one for the specified Cosmos DB account.
+1. Like in automatic failovers, the **Cosmos DB SDK** automatically handles write region changes during manual failovers and ensures that calls are automatically redirected to the new write region.
+1. Navigate to **Azure Portal's** **Resource groups** option present in the favourites menu on the left side panel and select the resource group **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>**" and click on Azure Cosmos DB Account **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>"**.
+1. Click on **Replicate data globally** option present under **Cosmos DB Account** blade. Then click on **Manual Failover** menu present on the top of page.
+
+   ![](images/ManualFailover.jpg)
+
+1. Once you get redirected to the **Manual failover** page, select a **Read Region** to change it into the new **Write** **Region**.
+1. Click on checkbox  **I understand and agree to trigger a failover on my current Write Region** given below and click **OK** button to save the changes done.
+
+   ![](images/ManualFailover1.jpg)
+
+1. If your applications have predictable traffic patterns based on the time of the day, you can periodically change the write status to the most active geographic region based on time of the day.
+
+> _In this article, we understood how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be globally available. By using Cosmos DB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures._
+ 
+### 3.  Cosmos DB Data Analysis with Cosmos 
+#### 3.1 Add Cosmos DB as data Source
+1. Access Windows VM and Run **Power BI Desktop** application available on desktop.
 2. Once Power BI Desktop is launched, a Welcome screen is displayed. Provide the information and Click on **Done**.
 <img src="images/welcomepage.jpg"/><br/>
 3. The Report view of Power BI Desktop is displayed. Select the **Home** ribbon, then click on **Get Data**. The Get Data window should appear.
@@ -157,7 +214,7 @@ Leave the database name, collection name, and SQL statement blank as these field
     The Preview pane shows a list of Record items. A Document is represented as a Record type in Power BI. Similarly, a nested       JSON block inside a document is also a Record.
     <img src="images/navigator.jpg"/><br/>
 12. **Click** Edit to launch the Query Editor in a new window to transform the data.
-#### 3.2 Flattening and transforming JSON documents
+#### 3.2 Flattening, transforming JSON documents and developing dashboards
 1. Switch to the Power BI Query Editor window, where the Document column in the center pane. 
 <img src="images/queryeditor.jpg"/><br/>
 2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Count of Document.Shares Outstanding,etc and then click **OK**.

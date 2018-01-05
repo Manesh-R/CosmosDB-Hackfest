@@ -20,6 +20,7 @@
 
 <img src="images/xrdp.jpg"/><br/>
 
+
 #### 1.1.2	Launch VS Code and understand application components and hierarchy 
 
 1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
@@ -55,9 +56,14 @@ show collections
 
 <img src="images/jumpvm6.jpg"/><br/>
 
+
 7. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
 
 8. You will see the sign-up page. Enter your microsoft Credential here.  
+
+
+6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
+7. You will see the sign-up page. Enter your microsoft Credential here.  
 
 <img src="images/signup.jpg"/><br/>
 

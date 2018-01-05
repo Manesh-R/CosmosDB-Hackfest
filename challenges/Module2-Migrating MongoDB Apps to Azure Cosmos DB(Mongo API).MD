@@ -1,10 +1,10 @@
 # Lab 2a: Migrate MongoDB Applications to Azure Cosmos DB(Mongo API)
-## 1. Understand the Flight App and Migrate the database to Azure Cosmos DB
-### 1.1 Understand Flight reservation application 
-#### 1.1.1	Access Jump VM 
+## Scenario 1 Understand the Flight Reservation App, Local MongoDB and test Application
+### Understand Flight reservation application 
+#### Access Jump VM 
 1. From azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
 
-<img src="images/jumpvm1.jpg"/><br/>
+   <img src="images/jumpvm1.jpg"/><br/>
 
 1. Click on start button and search for **Remote Desktop Connection** and click on it.
 
@@ -22,7 +22,7 @@
 
     > Note If you get err:connecting at first login: Click OK and try again.
 
-#### 1.1.2	Launch VS Code and understand application components and hierarchy 
+#### Launch VS Code and understand application components and hierarchy 
 
 1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
 
@@ -41,7 +41,7 @@
 
 <img src="images/fsbrowse.png"/><br/>
 
-#### 1.1.3	Access Local MongoDB and Verify Collections
+#### Access Local MongoDB and Verify Collections
 
 1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below:
 
@@ -55,7 +55,7 @@ show collections
 ```
 <img src="images/mongodb.jpg"/><br/>
 
-#### 1.1.4	Execute and Test the Application Locally
+#### Execute and Test the Application Locally
 
 1. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below.
 
@@ -90,33 +90,34 @@ show collections
  
 
 
-## 2. Migrate Application to Cosmos DB
-### 2.1 Create Cosmos DB with Mongo API
+## Scenario 2 Migrate Application data to Cosmos DB
+
+### Create Cosmos DB with Mongo API
 1. Open Azure Portal with your credential and Click on Add button.
 
 <img src="images/addcosmos.jpg"/><br/>
 
-2. Search for Azure Cosmos DB and Select it.
+1. Search for Azure Cosmos DB and Select it.
 
 <img src="images/cosmos1.jpg"/><br/>
-3. Click on create button.
+1. Click on create button.
 
 <img src="images/cosmos2.jpg"/><br/>
-4. 5.	Populate the below parameters as shown below.
+1. Populate the below parameters as shown below.
 * **ID**:(any valid name)
 * **API**: select **Mongo DB** from the dropdown.
 * **Resource Group**: Choose use existing Resource Group.
 
 <img src="images/cosmosdb1.jpg"/><br/>
 
-5.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.
+1.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.
 
 <img src="images/cosmosdb2.jpg"/><br/>
 
-7. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use
+1. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use
 <img src="images/cosmosdb3.jpg"/><br/>
 
-### 2.2 Migrate Database to Azure Cosmos DB
+### Migrate Database to Azure Cosmos DB
 In this exercise, We will use mongoexport to export the data from MongoDB running locally in the jump-VM and then we will use mongoimport to insert this dataset into newly created Cosmos DB.
 
 1.	Open Terminal on Jump VM,(Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file. 
@@ -129,7 +130,7 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollectio
 sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
 ```
 
-<img src="images/allexport.jpg"/><br/>
+ <img src="images/allexport.jpg"/><br/>
 
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
 
@@ -145,16 +146,16 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection feedbackdb --file feedbackdb.bkp
 ```
 
-<img src="images/importall.jpg"/><br/>
+ <img src="images/importall.jpg"/><br/>
 
 
-3. Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.
+1. Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.
 
-4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.
+1. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.
 
 <img src="images/collections.jpg"/><br/>
 
-### 2.3 Update Application to use Cosmos DB 
+### Update Application to use Cosmos DB 
 
 
 1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.
@@ -163,7 +164,7 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
 ```
 
-<img src="images/config.jpg"/><br/>
+  <img src="images/config.jpg"/><br/>
 
 1. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.
 
@@ -171,9 +172,9 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 
 1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**
 
-<img src="images/jumpvm4.jpg"/><br/>
+  <img src="images/jumpvm4.jpg"/><br/>
 
-<img src="images/jumpvm5.jpg"/><br/>
+  <img src="images/jumpvm5.jpg"/><br/>
 
 1. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
 if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
@@ -241,9 +242,37 @@ Configure FlightsCollection data to leverage the Partitions
 
 ## Scenario 4: Global Distribution
 
-To be Added
+To be added Later.
 
 ## Scenario 5: Integration with Azure Functions
+
+### Create an Azure Function App
+Login to Azure portal with your credentials and Click on +New
+1. Login to Azure portal with your credentials and Click on +New
+    ![](image/searchfunction.png)
+
+
+1. Search for Function App
+
+1. Click on Create
+
+1. Fill in details to create Function App as defined below
+
+•	App Name: Your unique name to identify the application
+•	Subscription: Leave default
+•	Resource Group: Choose Use Existing and select your available resource group
+•	OS: Windows
+•	Hosting Plan: Consumption Plan
+•	Location: Location of your RG
+•	Storage: Use Existing and choose available storage account
+
+    ![](image/newfunction.png)
+
+1. Click on Go to Resource Once provisioning is completed
+
+    ![](image/functioncreated.png)
+
+
 
 ### Create a function with Deal Data
 

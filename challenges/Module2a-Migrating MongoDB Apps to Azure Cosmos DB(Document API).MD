@@ -13,6 +13,8 @@
 5. Enter the credentials provided in the mail to connect to VM.
 
 <img src="images/xrdp.jpg"/><br/>
+
+  > Note: If you get err: connector error on first login, Click **OK** as try logging in again.
 #### 1.1.2	Launch VS Code and understand application components and hierarchy 
 1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
 <img src="images/jumpvm2.jpg"/><br/>
@@ -24,6 +26,7 @@
 <img src="images/jumpvm5.jpg"/><br/>
 5. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
 <img src="images/jumpvm6.jpg"/><br/>
+  >  Note: This command may take 2-3 minutes to finish executing.
 6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
 7. You will see the sign-up page. Enter your microsoft Credential here.  
 <img src="images/signup.jpg"/><br/>

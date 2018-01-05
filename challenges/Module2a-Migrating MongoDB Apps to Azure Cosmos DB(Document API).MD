@@ -49,6 +49,37 @@
 # Cosmos DB Concepts
 
 ## Partitioning
+<page title="Partitioning"/>
+
+## Scenario 4: Concept of Logical Partitioning
+
+1. In **Azure Cosmos DB**, you can store and query schema-less data with order-of-millisecond response times at any scale.
+1. Azure Cosmos DB provides **containers** for storing data called **collection.** **Containers** are logical resources and can span one or more physical partitions or servers.
+1. The number of partitions is determined by Azure Cosmos DB based on the **storage** **size** and the provisioned **throughput** of the container.
+1. Partition management is fully managed by **Azure Cosmos DB**, and you don't have to write complex code or manage your partitions. **Azure Cosmos DB** containers are unlimited in terms of **storage** and **throughput.**
+1. When you create a collection, you can specify a  **partition key** property. **Partition key** is the JSON property (or path) within your documents that can be used by **Mongo API** to distribute data among multiple partitions.
+1. **Mongo API** will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition.
+
+   >_In_ **Azure Cosmos DB,** logical partitioning _gets created based on the_ **size** _of the collection i.e. more than_ **10 GB** _or the specified **throughput of the container** (throughput in terms of [request units_](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units) (RU) per second)._
+
+   >_Physical partitioning_ **Partitioning** _is completely managed by_ **Azure**_. It automatically creates a_ **Logical Partition** _based on the_ **Partition key**. But in this case, just to show you the power of **Partitioning** feature of Azure Cosmos DB, we have created the **Physical partition.** 
+
+1. In this exercise, We'll create another collection named **FlightsCollectionPartitioned** in existing **contoairdb3** with number of **Stops** as the partition key
+1. Open Azure Portal and access the Cosmos DB account created earlier, Go to **Browse** in settings blade
+1. Click on Add Collection Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb3** as the database ID and **FlightsCollectionPartitioned** as the collection name. Enter **stop** as partition key, leave all other settings as default.
+
+1.Now We'll insert the the **FlightsCollection** data into this partitioned collection. For this, We've already created a nodejs program named **cosmos_mongo_partition_insert.js** . run node cosmos_mongo_partition_insert.js the ContosoAir.Services root directory.
+
+1. Data is now inserted, let's go to Azure portal to verify, Go to **Browse** in settings blade of Cosmos DB Account
+1. You'll see that under documents, there's another column named **stop** along with **id**. Click on Scale and settings to verify the partition. 
+
+
+
+1. This code creates two physical partitions called **FlightData\_Stop1** and **FlightData\_Stop2** based on the **partition key**.
+
+
+
+> Awesome! In this scenario, you learned the Partitioning feature of  Azure Cosmos DB.
 
 ## Global Distribution
 

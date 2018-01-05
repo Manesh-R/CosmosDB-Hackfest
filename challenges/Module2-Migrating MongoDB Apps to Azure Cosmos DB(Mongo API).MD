@@ -243,9 +243,9 @@ Configure FlightsCollection data to leverage the Partitions
 
 To be Added
 
-# Scenario 5: Integration with Azure Functions
+## Scenario 5: Integration with Azure Functions
 
-## Create a function with Deal Data
+### Create a function with Deal Data
 
   > _Let's create an Azure Function to retrieve data of flight deals._
 
@@ -256,7 +256,7 @@ To be Added
   
 1. Now, click on the **Custom function** link present at the bottom of the page.
 
-    ![](img/GetStartedOnYourOwn.jpg)
+    ![](image/GetStartedOnYourOwn.jpg)
 
 1. Click on **C#** template available in **HTTP trigger** section and name the function as "**FetchDealsData**" in **Name** textbox and click **Create** button.
 1. A function with sample default code would get created. Now, replace the sample default code with the code snippet given below.
@@ -279,7 +279,7 @@ To be Added
 
 1. Under **Inputs** section, click on **+ New Input** and select **Azure Cosmos DB** then click **Select** button at the bottom of page.
 
-    ![](img/Integrate.jpg)
+    ![](image/Integrate.jpg)
 
 1. Enter **Document parameter name** as **SelectDealsData**, **Database name** as **contosoairdb** and **Collection name** as **DealsCollection** in respective textboxes.
  
@@ -291,36 +291,35 @@ To be Added
 
     > **NOTE:** Above **SQL query** is responsible to get deals details from **DealsCollection** available in Cosmos DB like id, from name, from code, to name, to code, price, depart time, arrival time, hours, stops, since. (Ignore non-mandatory fields)
 
-    ![](img/SqlQuery.jpg)
+    ![](image/SqlQuery.jpg)
 
 1. To enter **Cosmos DB account connection,** click on the **new** link given beside **Cosmos DB account connection** textbox.
-1. You will be redirected to **Document DB Account blade**, select the **Document DB Account** named as **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>**.
+1. You will be redirected to **Cosmos DB Account blade**, select the **Cosmos DB Account** named as **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>**.
 1. Now, click **Save** button ![](img/SaveButton.jpg) button.
 1. To check whether the function is integrated, click on **FetchDealsData** function present under **AureFunctionForDeals** function app blade and click on **Test** option present at the right most corner.
 
-   ![File2](img/file2.png)
+   ![File2](image/file2.png)
 
 1. Select **HTTP method** as **GET** from the dropdown. Then click **Run** button ![](img/run.jpg) at the bottom.
 1. Status **200 Ok** will be displayed once the test is completed which signifies that the function is integrated successfully.
 
-   ![](img/status200.jpg)
+   ![](image/status200.jpg)
 
    > _Here you go! You have successfully created Azure Function to_ _retrieve flight deals_ _data from_ **Cosmos DB**_._
 
 1. In the **Functions Apps** blade, click on **FetchDealsData**.
-1. You will get navigated to function and will find **</> Get function URL** link in the top right corner of the page. Click on the link ![](img/getFunctn.jpg).
+1. You will get navigated to function and will find **</> Get function URL** link in the top right corner of the page. Click on the link ![](image/getFunctn.jpg).
 1. On clicking **</> Get function URL** you will get a popup window with a URL.
 
-    ![](img/url.jpg)
+    ![](image/url.jpg)
 1. Click on **Copy** ![](img/Copy.jpg) icon to copy the given URL and paste it against **AZURE\_FUNCTION\_DEALS\_URL:** variable in **config.js file** opened in **Visual Studio 2017** IDE and save the file.
 
    > _Awesome, you have created Azure Function for Deals data and integrated with Cosmos DB._
 
 
-# Scenario 6: Azure Cosmos DB Operations: Monitoring, Security and Backup & Restore
+## Scenario 6: Azure Cosmos DB Operations: Monitoring, Security and Backup & Restore
 
 ## Understanding Cosmos DB Monitoring and SLA's
-### Azure Cosmos DB Service Level Agreements
 
 Cloud service offering a comprehensive SLA for:
 

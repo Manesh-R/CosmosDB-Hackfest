@@ -90,9 +90,9 @@ show collections
 
 <img src="images/cosmos2.jpg"/><br/>
 4.	Populate the below parameters as shown below.
-    -	ID : Provide any unique name.
-    -	API : **SQL** 
-    -	Resource group : Choose **Use Existing Resource Group**. <br/>
+* **ID** : Provide any unique name.
+* **API** : **SQL** 
+* **Resource group** : Choose **Use Existing Resource Group**. <br/>
     Click on **Create**.<br/>
 
 <img src="images/cosmosdb1.jpg"/><br/>

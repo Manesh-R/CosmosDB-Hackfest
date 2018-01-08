@@ -84,7 +84,7 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollectio
 sudo mongoexport --host localhost --db contosoairdb3 --collection FlightsCollection --out FlightsCollection.bkp
 sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollection --out SeatsCollection.bkp
 sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
-```<br/>
+```
  <img src="images/allexport.jpg"/><br/>
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.<br/>
 ```bash
@@ -97,19 +97,18 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
 
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection feedbackdb --file feedbackdb.bkp
-```<br/>
+```
 <img src="images/importall.jpg"/><br/>
 3. Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.<br/>
 4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.<br/>
 <img src="images/collections.jpg"/><br/>
 
 ### Update Application to use Cosmos DB 
-
 1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
-```<br/>
+```
 <img src="images/config.jpg"/><br/>
 2. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.<br/>
 3. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.<br/>

@@ -22,7 +22,7 @@
 3. ContosoAir application is two tiered application, One frontend application built on AngularJS named **ContosoAir.Website** and API application named **ContosoAir.Services** build with NodeJS.<br/>
 5. All connectivity information required for the API application is maintained in **config.js** , As shown below.<br/>
 <img src="images/configjs.png"/><br/>
-6. Following is the file system location for application binaries /home/CosmosDB-Hackfest/ContosoAir/src/.
+6. Following is the file system location for application binaries /home/CosmosDB-Hackfest/ContosoAir/src/.<br/>
 <img src="images/fsbrowse.png"/><br/>
 
 #### Access Local MongoDB and Verify Collections
@@ -69,7 +69,7 @@ show collections
 * **Resource Group**: Choose use existing Resource Group.
 Click on **Create** button.<br/>
 <img src="images/cosmosdb1.jpg"/><br/>
-5.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.
+5.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.<br/>
 <img src="images/cosmosdb2.jpg"/><br/>
 6. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use.<br/>
 <img src="images/cosmosdb3.jpg"/><br/>
@@ -90,15 +90,15 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --o
 
 2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.<br/>
 ```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection DealsCollection --file DealsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection DealsCollection --file DealsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection feedbackdb --file feedbackdb.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection feedbackdb --file feedbackdb.bkp
 ```
 <img src="images/importall.jpg"/><br/>
 

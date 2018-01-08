@@ -89,11 +89,11 @@ show collections
 3. Click on create button.
 
 <img src="images/cosmos2.jpg"/><br/>
-4. 5.	Populate the below parameters as shown below.
-    - **ID**:(any valid name)
-    - **API**: select Mongo DB from the dropdown.
-    - **Resource Group**: Choose **Use Existing** Resource Group.<br/>
-    Click on Create.<br/>
+4.	Populate the below parameters as shown below.
+    -	ID : Provide any unique name.
+    -	API : **SQL** 
+    -	Resource group : Choose **Use Existing Resource Group**. <br/>
+    Click on **Create**.<br/>
 
 <img src="images/cosmosdb1.jpg"/><br/>
 

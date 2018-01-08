@@ -190,10 +190,10 @@ To be added Later.
 
 ### Create an Azure Function App
 In this we will create Azure Function App.<br/>
-1. Login to Azure portal with your credentials and Click on +New.<br/>
-2. Search for Function App.<br/>
+1. **Login** to **Azure portal** with your credentials and Click on **+New**.<br/>
+2. Search for **Function App**.<br/>
 <img src="images/fuctionappsearch.jpg"/><br/>
-3. Click on Create.<br/>
+3. **Click** on **Create**.<br/>
 <img src="images/fnxcreate.jpg"/><br/>
 4. Provide the parameters to create Function App as defined below.<br/>
 *	**App Name**: Your unique name to identify the application
@@ -205,7 +205,7 @@ In this we will create Azure Function App.<br/>
 *	**Storage**: Use Existing and choose available storage account<br/>
     Click on **Create**.<br/>
     <img src="images/fnxinfo.jpg"/><br/>
-5. Click on Go to Resource Once provisioning is completed.<br/>
+5. Click on **Go to Resource** Once provisioning is completed.<br/>
 <img src="images/functioncreated.jpg"/><br/>
 
 ### Create a function with Deal Data

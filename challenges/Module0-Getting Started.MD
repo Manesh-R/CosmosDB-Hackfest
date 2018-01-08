@@ -35,22 +35,3 @@ In this exercise, you will verify the type of role you are assigned in this Subs
 <img src="images/module7.jpg"/><br/>
 5. You will see one Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on **Overview** tab and finally on VM.
 <img src="images/module8.jpg"/><br/>
-6. In **Overview** section, click on **Connect** button. It will show username with IP address copy that IP address.
-
-<img src="images/jumpconnect.jpg"/><br/>
-6. Click on start button and search for **Remote Desktop Connection** and click on it.
-
-7. **Remote Desktop Connection** window will pop-up in that provide the IP Address that you copied in above step.
-
-<img src="images/rdc.jpg"/><br/>
-8. **Click** on **Yes** button in Remote Desktop Connection Wizard.
-
-<img src="images/rdc2.jpg"/><br/>
-9. Enter the credentials provided in the mail to connect to VM.
-
-<img src="images/xrdp.jpg"/><br/>
-10. You will see the Ubuntu OS as shown below:
-
-<img src="images/module9.jpg"/><br/>
-
-    > Note If you get err:connecting at first login: Click OK and try again.

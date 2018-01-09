@@ -219,14 +219,14 @@ replace with newly created collection with partitioning
    **OR**
 
 1. You can go to **Resource groups** option present in the favourites menu on the left side panel and click on it to check the status of the created **replicated Cosmos DB*.*<br/>
-1. Once the replication process is completed, again switch to **Visual Studio 2017** IDE and open **config.js** file present under project "**ContosoAir.Services"** from the **Solution Explorer**.<br/>
+1. Once the replication process is completed, again switch to **Visual Studio Code** IDE and open **config.js** file present under project "**ContosoAir.Services"** from the **Explorer**.<br/>
 1. Now change **DOCUMENT_DB_PREFERRED_REGION**  **'Name of the region where you replicated the database i.e. Read region'** and save the file.
 
    > For e.g. **Central India**
 
 <img src="images/centralIndia.jpg"/><br/>
 
-11. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.
+11. Go to **Command Prompt** which was already launched. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.
 
    ```cmd
    npm start

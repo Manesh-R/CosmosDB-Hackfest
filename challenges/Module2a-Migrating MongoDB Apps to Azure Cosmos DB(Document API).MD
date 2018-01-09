@@ -220,13 +220,13 @@ replace with newly created collection with partitioning
 
 1. You can go to **Resource groups** option present in the favourites menu on the left side panel and click on it to check the status of the created **replicated Cosmos DB*.*<br/>
 1. Once the replication process is completed, again switch to **Visual Studio 2017** IDE and open **config.js** file present under project "**ContosoAir.Services"** from the **Solution Explorer**.<br/>
-1. Now change **DOCUMENT_DB_PREFERRED_REGION**  **'Name of the region where you replicated the database i.e. Read region'** and save the file.<br/>
+1. Now change **DOCUMENT_DB_PREFERRED_REGION**  **'Name of the region where you replicated the database i.e. Read region'** and save the file.
 
    > For e.g. **Central India**
 
 <img src="images/centralIndia.jpg"/><br/>
 
-1. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.<br/>
+1. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.
 
    ```cmd
    npm start
@@ -238,7 +238,7 @@ replace with newly created collection with partitioning
 1. Go to the browser where you have launched **ContosoAir Website** and refresh the page and enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/><br/>
 1. Now, you will observe that after replication to the region near your current region it will take **less time to retrieve flight data**. It will show the time required to fetch data on website on the top of page (**Low latency**).<br/>
 
-> _Remember you created Azure Function in Part C, now let's check how the Flight deals data is reflected in ContosoAir Website._<br/>
+> _Remember you created Azure Function in Part C, now let's check how the Flight deals data is reflected in ContosoAir Website.
 
    <img src="images/newpopup2.jpg"/><br/>
 

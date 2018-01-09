@@ -33,7 +33,7 @@ In this exercise, you will verify the type of role you are assigned in this Subs
 <img src="images/module6.jpg"/><br/>
 4. **Click** on the **Resource groups** button in the **Menu navigation** bar to view the Resource groups blade.
 <img src="images/module7.jpg"/><br/>
-5. You will see one Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on **Overview** tab and finally on VM.
+5. You will see one Resource Groups on which you have access. Click on Resource Group which contains the pre-deployed on-premises infrastructure then click on **Overview** tab and finally on **JumpVM**.
 <img src="images/module8.jpg"/><br/>
 6. In **Overview** section, click on **Connect** button. It will show username with IP address copy that IP address.
 

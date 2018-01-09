@@ -184,7 +184,66 @@ replace with newly created collection with partitioning
 
 ## Scenario 4: Global Distribution
 
-To be added Later.
+   > Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
+
+   > Replication ensures that your storage account meets the  [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
+
+   > _To test the above scenario of_ **Part D**, _lets replicate the database into multiple regions. Below is the procedure for the same._
+
+   > **NOTE:** Cosmos DB Account named as "**<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>"** _is already present in the_ **Resource group** _named_ **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>** _which is present in_ **South Central US.**
+
+1. Go back to **Azure Portal** and navigate to **Resource groups** option ![](img/ResourceGropus.jpg) present in the favourites menu on the left side panel and select the resource group **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>**.<br/>
+1. Click on **Cosmos DB Account** named **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>**.<br/>
+1. Click on **Replicate data globally** <img src="images/ReplicateDataGlobally.jpg"/> option present under **Cosmos DB Account** blade.
+<img src="images/centralIndia.jpg"/><br/>
+1. Select the **region** or **multiple** regions in which you want to **replicate** the database by clicking on hexagon icon.<br/>
+
+   > For experiencing the Latency difference, replicate Azure Cosmos DB
+   > - Near to your current location (Low Latency).
+   > - Far away from your current location (High Latency).
+
+   > **For e.g.** Select region which is near to your current region i.e. **South Central US** to replicate the database.
+
+1. Click **Save** button. To view the deployment process, click **Notification Icon** <img src="images/BellIcon.jpg"/>.
+
+   > **Note** :
+   > - It takes some time near about 8 to 10 mins to complete the deployment of the resources till then let's take you to the concept of Multi-homing API's.
+
+   > - You can distribute your data to any number of Azure regions, with the click of a button. This enables you to put your data where your users are, ensuring the lowest possible latency to your customers.
+
+   > - Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and sends requests to the nearest data center. All of this is possible with no config changes. You set your write-region and as many read-regions as you want, and the rest is handled for you for more details click on given link [https://docs.microsoft.com/en-us/azure/cosmos-db/introduction](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+
+1. Click on **Go to resource group** button to view the successfully created resource group.<br/>
+1. Click on  <img src="images/CancelButton.jpg"/> to close the **notification** window.<br/>
+
+   **OR**
+
+1. You can go to **Resource groups** option present in the favourites menu on the left side panel and click on it to check the status of the created **replicated Cosmos DB*.*<br/>
+1. Once the replication process is completed, again switch to **Visual Studio 2017** IDE and open **config.js** file present under project "**ContosoAir.Services"** from the **Solution Explorer**.<br/>
+1. Now change **DOCUMENT_DB_PREFERRED_REGION**  **'Name of the region where you replicated the database i.e. Read region'** and save the file.<br/>
+
+   > For e.g. **Central India**
+
+<img src="images/centralIndia.jpg"/><br/>
+
+1. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.<br/>
+
+   ```cmd
+   npm start
+   ```
+   > **Note:** We are doing this step so that all the changes done in the service will get reflected.
+
+<img src="images/jumpvm5.jpg"/><br/>
+
+1. Go to the browser where you have launched **ContosoAir Website** and refresh the page and enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/><br/>
+1. Now, you will observe that after replication to the region near your current region it will take **less time to retrieve flight data**. It will show the time required to fetch data on website on the top of page (**Low latency**).<br/>
+
+> _Remember you created Azure Function in Part C, now let's check how the Flight deals data is reflected in ContosoAir Website._<br/>
+
+   <img src="images/newpopup2.jpg"/><br/>
+
+> _Awesome! In this scenario, you learned turnkey global distribution and_ **Low Latency** _feature of_ **Azure Cosmos DB.**
+
 
 ## Scenario 5: Integration with Azure Functions
 

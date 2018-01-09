@@ -226,7 +226,7 @@ replace with newly created collection with partitioning
 
 <img src="images/centralIndia.jpg"/><br/>
 
-1. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.
+11. Go to **Command Prompt** which was already launched in **Step 14** of **Part C**. Stop the services by typing **CTRL+C** command this will terminate the process. Again, execute the command given below.
 
    ```cmd
    npm start
@@ -235,8 +235,8 @@ replace with newly created collection with partitioning
 
 <img src="images/jumpvm5.jpg"/><br/>
 
-11. Go to the browser where you have launched **ContosoAir Website** and refresh the page and enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/><br/>
-12. Now, you will observe that after replication to the region near your current region it will take **less time to retrieve flight data**. It will show the time required to fetch data on website on the top of page (**Low latency**).<br/>
+12. Go to the browser where you have launched **ContosoAir Website** and refresh the page and enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/><br/>
+13. Now, you will observe that after replication to the region near your current region it will take **less time to retrieve flight data**. It will show the time required to fetch data on website on the top of page (**Low latency**).<br/>
 
 > _Remember you created Azure Function in Part C, now let's check how the Flight deals data is reflected in ContosoAir Website.
 

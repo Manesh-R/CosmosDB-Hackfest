@@ -219,16 +219,16 @@ Leave the database name, collection name, and SQL statement blank as these field
 #### 3.2 Flattening, transforming JSON documents and developing dashboards
 1. Switch to the Power BI Query Editor window, where the Document column in the center pane. 
 <img src="images/queryeditor.jpg"/><br/>
-2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Count of Document.Shares Outstanding,etc and then click **OK**.
+2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Shares Outstanding and then click **OK**.
 <img src="images/selectrecord.jpg"/><br/>
 3. The center pane will display a preview of the result with the fields selected.
 <img src="images/records.jpg"/><br/>
 4. **Click** Close and Apply to save the data model.
 5. The following shows the basic steps of creating a simple interactive Pie Chart view report.
-* For our example, we will create a pie chart view showing the document sector of each Count of Document.Shares Outstanding. In the Visualizations pane, click on the pie chart visual type as highlighted in the screenshot above.
+* For our example, we will create a pie chart view showing the document sector and the count of Shares Outstanding for each sector. In the Visualizations pane, click on the pie chart visual type as highlighted in the screenshot above.
 <img src="images/piechart.jpg"/><br/>
-* Now, drag and drop the Count of Document.Shares Outstanding field from the Fields pane to the Values and Filters in   Visualizations pane.
+* Now, drag and drop the column on the right side "Document.Shares Outstanding" field from the Fields pane to the Values   Visualizations pane.
 * Next, drag and drop the Document.Sector field to the Filters property.
-* You should now see the Pie Chart showing different sectors with Count of Document.Shares Outstanding values.
+* You should now see the Pie Chart showing different sectors in relational to the Count of Shares Outstanding values.
 <img src="images/piechart1.jpg"/><br/>
 * You now have created a basic report. You can further customize the report by adding more visualizations.

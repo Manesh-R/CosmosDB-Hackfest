@@ -12,9 +12,7 @@ In this lab, you will be deploying pre-requisite infrastructure which is require
 
 ### Exercise 1: Log into your Azure Portal
 In this exercise, you will log into the Azure Portal using your Azure credentials.
-1.	**Launch** a browser and **Navigate** to https://portal.azure.com. Provide the credentials that your received via email. Click on **Sign In**.
-
-<img src="images/module1.jpg"/><br/>
+1.	**Navigate** to https://portal.azure.com and login (from the previous step).
 2. Enter a new **password**. Then select **Update password and sign in**.
 
 <img src="images/module2.jpg"/><br/>

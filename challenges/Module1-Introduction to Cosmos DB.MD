@@ -18,6 +18,8 @@
     -	ID : Provide any unique name.
     -	API : **SQL** 
     -	Resource group : Select **Create new** and type the name of the new resource group to be created. <br/>
+    -   Location: East US
+    -   Enable geo-redundancy: No
     Click on **Create**.<br/>
 <img src="images/cosmosdbinfo.jpg"/><br/>
 8.	After completion (5-10min) a notification will be raised as below.<br/>

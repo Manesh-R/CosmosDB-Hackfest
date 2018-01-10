@@ -146,16 +146,15 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
  
  #### 2.3 Automatic Failover
 
-1. In the rare event of an **Azure regional outage**, **data center outage**, Cosmos DB automatically **triggers failovers** of all Cosmos DB accounts with a presence in the affected region.
-1. Cosmos DB accounts with a **read region** in one of the affected regions are automatically disconnected from their **write** region and **marked** offline.
-1. The **Cosmos DB SDK** implement a regional discovery protocol that allows them to automatically detect when a region is available and redirect read calls to the next available region in the **preferred region** list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
-1. Once the affected region recovers from the outage, all the affected Cosmos DB accounts in the region are automatically recovered by the service. Cosmos DB accounts that had a read region in the affected region will then automatically sync with current write region and turn **online**.
-1. The **Cosmos DB SDK** discover the availability of the new region and evaluate whether the region should be selected as the current read region based on the **preferred region list** configured by the application.
+   > - In the rare event of an **Azure regional outage**, **data center outage**, Cosmos DB automatically **triggers failovers** of all Cosmos DB accounts with a presence in the affected region.
+   > - Cosmos DB accounts with a **read region** in one of the affected regions are automatically disconnected from their **write** region and **marked** offline.
+   > - The **Cosmos DB SDK** implement a regional discovery protocol that allows them to automatically detect when a region is available and redirect read calls to the next available region in the **preferred region** list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
+   > - Once the affected region recovers from the outage, all the affected Cosmos DB accounts in the region are automatically recovered by the service. Cosmos DB accounts that had a read region in the affected region will then automatically sync with current write region and turn **online**.
+   > - The **Cosmos DB SDK** discover the availability of the new region and evaluate whether the region should be selected as the current read region based on the **preferred region list** configured by the application.
 
    > _Now let's see how to change priorities of preferred region list._
 
-1. Navigate to **Azure Portal's** **Resource groups** option present in the favourites menu on the left side panel and select the resource group **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>**" and click on **Azure Cosmos DB Account** **"<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="cosmosDBWithSQLDBName"/>"**.
-1. Click on **Replicate data globally** option present under **Cosmos DB Account** blade. Then click on **Automatic Failover** menu present on the top of the page.
+1. Now you should be at the **Replicate data globally** section from the previous step. Then click on **Automatic Failover** menu present on the top of the page.
 
    ![](images/automaticFailover.jpg)
 

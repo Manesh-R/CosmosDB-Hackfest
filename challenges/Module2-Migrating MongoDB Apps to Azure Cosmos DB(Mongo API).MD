@@ -2,52 +2,34 @@
 ## Scenario 1 Understand the Flight Reservation App, Local MongoDB and test Application
 ### Understand Flight reservation application 
 #### Access Jump VM 
-1. From azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.
-
-   <img src="images/jumpvm1.jpg"/><br/>
-
-1. Click on start button and search for **Remote Desktop Connection** and click on it.
-
-1. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied in above step.
-
+1. From azure portal, Go to virtual machine and select the JumpVM. In Overview section, click on Connect button. It will show username with IP address copy that IP address.<br/>
+<img src="images/jumpvm1.jpg"/><br/>
+1. Click on start button and search for **Remote Desktop Connection** and click on it.<br/>
+1. Remote Desktop Connection window will pop-up in that provide the IP Address that you copied in above step.<br/>
 <img src="images/rdc.jpg"/><br/>
-
-1. Click on **Yes** button in Remote Desktop Connection Wizard.
-
+1. Click on **Yes** button in Remote Desktop Connection Wizard.<br/>
 <img src="images/rdc2.jpg"/><br/>
-
-1. Enter the credentials provided in the mail to connect to VM.
-
+1. Enter the credentials provided in the mail to connect to VM.<br/>
 <img src="images/xrdp.jpg"/><br/>
 
     > Note If you get err:connecting at first login: Click OK and try again.
 
 #### Launch VS Code and understand application components and hierarchy 
 
-1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow:
-
+1. Once you are logged in the Ubuntu OS click on Application for accessing visual studio code as shown blow.<br/>
 <img src="images/jumpvm2.jpg"/><br/>
-
-1. VS Code should have src folder already opened, Notice the folders hierarchy 
-
+1. VS Code should have src folder already opened, Notice the folders hierarchy<br/>
 <img src="images/projects.png"/><br/>
-
-1. ContosoAir application is two tiered application, One frontend application built on AngularJS named **ContosoAir.Website** and API application named **ContosoAir.Services** build with NodeJS. 
-
-1. All connectivity information required for the API application is maintained in **config.js** , As shown below.
+1. ContosoAir application is two tiered application, One frontend application built on AngularJS named **ContosoAir.Website** and API application named **ContosoAir.Services** build with NodeJS.<br/>
+1. All connectivity information required for the API application is maintained in **config.js** , As shown below.<br/>
 <img src="images/configjs.png"/><br/>
-
-1. Following is the file system location for application binaries /home/CosmosDB-Hackfest/ContosoAir/src/
-
+1. Following is the file system location for application binaries /home/CosmosDB-Hackfest/ContosoAir/src/.<br/>
 <img src="images/fsbrowse.png"/><br/>
-
 #### Access Local MongoDB and Verify Collections
 
-1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below:
-
+1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
 <img src="images/mongo.jpg"/><br/>
-
-1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application
+1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application.<br/>
 ```bash
 show dbs 
 use <db_name>
@@ -57,70 +39,45 @@ show collections
 
 #### Execute and Test the Application Locally
 
-1. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below.
-
+1. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below.<br/>
 <img src="images/jumpvm4.jpg"/><br/>
-
-
-1. Run **npm start** command. Application should start, Incase of any errors make sure you're in right directory as instructed in previous step.Minmize the terminal once command is executed, do not exit or CTRL+C.
-
-
+1. Run **npm start** command. Application should start, Incase of any errors make sure you're in right directory as instructed in previous step.Minmize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm5.jpg"/><br/>
-
-1. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **ng serve** command in terminal. Minmize the terminal once command is executed, do not exit or CTRL+C.
-
+1. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **ng serve** command in terminal. Minmize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
 
     > Note This  may take upto a minute to start this website. 
 
-1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.
-
-1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.
-
-
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
+1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
 <img src="images/signup.jpg"/><br/>
-
-1. Once you get login, you will be redirected to **ContosoAir app**.
-
+1. Once you get login, you will be redirected to **ContosoAir app**.<br/>
 <img src="images/contoso1.jpg"/><br/>
-
-1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
-
+1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
 <img src="images/contoso2.jpg"/><br/>
  
-
-
 ## Scenario 2 Migrate Application data to Cosmos DB
 
 ### Create Cosmos DB with Mongo API
-1. Open Azure Portal with your credential and Click on Add button.
-
+1. Open Azure Portal with your credential and Click on Add button.<br/>
 <img src="images/addcosmos.jpg"/><br/>
-
-1. Search for Azure Cosmos DB and Select it.
-
+1. Search for Azure Cosmos DB and Select it.<br/>
 <img src="images/cosmos1.jpg"/><br/>
-1. Click on create button.
-
+1. Click on create button.<br/>
 <img src="images/cosmos2.jpg"/><br/>
-1. Populate the below parameters as shown below.
+1. Populate the below parameters as shown below.<br/>
 * **ID**:(any valid name)
 * **API**: select **Mongo DB** from the dropdown.
-* **Resource Group**: Choose use existing Resource Group.
-
+* **Resource Group**: Choose **use existing** Resource Group.<br/>
+ Click on **Create**.<br/>
 <img src="images/cosmosdb1.jpg"/><br/>
-
-1.	After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.
-
+5. After deployment gets completed, click on **Go to resource** to verify that resource is successfully deployed.<br/>
 <img src="images/cosmosdb2.jpg"/><br/>
-
-1. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use
+6. **Go to Connection String** and Copy all the parameters (Host, Port, Username, Password, Primary Connection String) in notepad for future use.<br/>
 <img src="images/cosmosdb3.jpg"/><br/>
-
 ### Migrate Database to Azure Cosmos DB
-In this exercise, We will use mongoexport to export the data from MongoDB running locally in the jump-VM and then we will use mongoimport to insert this dataset into newly created Cosmos DB.
-
-1.	Open Terminal on Jump VM,(Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file. 
+In this exercise, We will use mongoexport to export the data from MongoDB running locally in the jump-VM and then we will use mongoimport to insert this dataset into newly created Cosmos DB.<br/>
+1. Open Terminal on Jump VM,(Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file.<br/>
 
 ```bash
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
@@ -129,10 +86,9 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection FlightsCollect
 sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollection --out SeatsCollection.bkp
 sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
 ```
+<img src="images/allexport.jpg"/><br/>
 
- <img src="images/allexport.jpg"/><br/>
-
-2.	Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.
+2.  Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.<br/>
 
 ```bash
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
@@ -145,54 +101,40 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection feedbackdb --file feedbackdb.bkp
 ```
+<img src="images/importall.jpg"/><br/>
 
- <img src="images/importall.jpg"/><br/>
+3.  Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.<br/>
 
-
-1. Data is now migrated, lets verify this in Azure Portal, Switch to Azure Portal as launched earlier navigate to Resource groups option present in the favourites menu on the left side panel and select the resource group then click on your newly created Azure Cosmos DB Account.
-
-1. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.
-
+4. Click on **Data Explorer** option. It will display the collection created in Azure Cosmos DB Account. You should see newly created DB along with collection, you may browse the documents in collections.<br/>
 <img src="images/collections.jpg"/><br/>
 
 ### Update Application to use Cosmos DB 
 
-
-1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.
+1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
 ```
+<img src="images/config.jpg"/><br/>
 
-  <img src="images/config.jpg"/><br/>
+2. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.<br/>
 
-1. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.
+3. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.<br/>
 
-1. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.
+4. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
+<img src="images/jumpvm4.jpg"/><br/>
+<img src="images/jumpvm5.jpg"/><br/>
 
-1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**
-
-  <img src="images/jumpvm4.jpg"/><br/>
-
-  <img src="images/jumpvm5.jpg"/><br/>
-
-1. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
-if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.
-
+5. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
+if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
+6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.<br/>
 
-1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.
-
-1. You will see the sign-up page. Enter your microsoft Credential here. 
-
+7. You will see the sign-up page. Enter your microsoft Credential here.<br/>
 <img src="images/signup.jpg"/><br/>
-
-1. Once you get login, you will be redirected to **ContosoAir app**.
-
+8. Once you get login, you will be redirected to **ContosoAir app**.<br/>
 <img src="images/contoso1.jpg"/><br/>
-
-1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.
-
+9. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
 <img src="images/contosotime.jpg"/><br/>
 
 You should notice that latency is now changed when loading the flight data
@@ -252,7 +194,6 @@ replace with newly created collection with partitioning
 
 To be added Later.
 
-## Scenario 5: Integration with Azure Functions
 ## Scenario 5: Integration with Azure Functions
 
 ### Create an Azure Function App

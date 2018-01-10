@@ -17,7 +17,7 @@
 7.	Provide the following details in the Add directory blade.<br/>
     -	ID : Provide any unique name.
     -	API : **SQL** 
-    -	Resource group : Select **Create new** and type the name of the new resource group to be created. <br/>
+    -	Resource group : Select **Use Existing** and choose the name of the existing resource group to be used. <br/>
     -   Location: East US
     -   Enable geo-redundancy: No
     Click on **Create**.<br/>
@@ -47,7 +47,7 @@
 #### 1.3.1	Access Windows VM and Launch Data migration tool.
 
 
-1.  Access PowerBI VM(Windows) via RDP, Open Internet Explorer inside the Windows VM and download the data which we would  migrate to cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/> (http://bit.ly/2CYzX8I)
+1.  Access PowerBI VM(Windows) via RDP, Open Internet Explorer inside the Windows VM and download the data which we would  migrate to cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip) (http://bit.ly/2CYzX8I)<br/> 
 A zip file will download, extract and open the file to view the json data set.<br/>
 2.  **Launch** your **data migration tool** by opening the **dtui.exe** application. (under C:\Packages)<br/>
 <img src="images/migrationtool.jpg"/><br/>   

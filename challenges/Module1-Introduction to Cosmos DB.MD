@@ -20,7 +20,7 @@
     -	Resource group : Select **Create new** and type the name of the new resource group to be created. <br/>
     Click on **Create**.<br/>
 <img src="images/cosmosdbinfo.jpg"/><br/>
-8.	After completion a notification will be raised as below.<br/>
+8.	After completion (5-10min) a notification will be raised as below.<br/>
 <img src="images/cosmosdb_notification.jpg"/><br/>
 ### 1.2	Create new DB and collection
 1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>

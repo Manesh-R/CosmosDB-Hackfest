@@ -303,12 +303,12 @@ Cloud service offering a comprehensive SLA for:
 1. Click on **Throughput** menu to view the graphs.
 1. The first graph displayed is to find **Number of requests over the 1 hour period.**
 
-   <img src="images/charts_thruput_menu.jpg"/><br/>
+   <img src="images/Throughput1"/><br/>
 
 1. The second graph is to monitor **Number of requests that failed due to exceeding throughput or storage capacity provisioned for the collection per 5 min.**
 1. The third chart displays **provisioned throughput and Max Request Units per second (RU/s) consumed by a physical partition, over a given 5-minute interval, across all partitions.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/Throughput2"/><br/>
 
 1. This chart **displays provisioned throughput and Max Request Units per second (RU/s) consumed by each physical partition over the last observed 1-minute interval.**
 
@@ -316,54 +316,54 @@ Cloud service offering a comprehensive SLA for:
 
 1. The fourth chart shows the **Average Consumed Request Units per second (RU/s) over the 5-minute period vs provisioned RU/s.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="Throughput4"/><br/>
 
     #### Charts included under Storage menu.
 
 1. Click on **Storage** menu to view the graphs.
 1. The first graph displays the **Available storage capacity for this collection, current size of the collection data, and index.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="data_index_storage_consume_vs_available"/><br/>
 
 1. Another graph shows the **Current size of data and index stored per physical partition.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/storage1"/><br/>
 1. The third chart shows the **Current number of documents stored per physical partition**.
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/storage2"/><br/>
 
     #### Charts included under Availability menu.
 
 1. Click on **Availability** menu to view the graphs.
 1. The chart displays the **Availability is reported as % of successful request over the past hour, where successful is defined in the DocumentDB SLA.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/availability.jpg"/><br/>
 
     #### Charts included under Latency menu.
 
 1. Click on **Latency** menu to view the graphs.
 1. First graph displays **the Latency for a 1KB document lookup operation observed in this account's read regions in the 99th percentile.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/latency1.jpg"/><br/>
 
 1. Another graph displays the Latency for a 1KB document write operation observed in South Central US in the 99th percentile.
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/latency2.jpg"/><br/>
 
     #### Charts included under Consistency menu.
 
 1. Click on **Consistency** menu to view the graphs.
 1. The first graph displays **Empirical probability of a consistent read in read region as a function of time since the corresponding write commit in write region, observed over the past hour.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/empirical_portability.jpg"/><br/>
 
 1. This chart shows **distribution of the observed replication latency in {0}, i.e. the difference between time when the data write was committed in {1} and the time when the data became available for read in {0}.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/replication_latency.jpg"/><br/>
 
 1. The third graph displays **Percent of requests that met the monotonic read guarantee and the "read your own writes" guarantee.**
 
-    <img src="images/charts_thruput_menu.jpg"/><br/>
+    <img src="images/cosistency3.jpg"/><br/>
 
     > For further information refer following link [Azure Cosmos DB  Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_1//).
 

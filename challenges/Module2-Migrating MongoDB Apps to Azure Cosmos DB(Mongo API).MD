@@ -308,7 +308,7 @@ Cloud service offering a comprehensive SLA for:
 1. The second graph is to monitor **Number of requests that failed due to exceeding throughput or storage capacity provisioned for the collection per 5 min.**
 1. The third chart displays **provisioned throughput and Max Request Units per second (RU/s) consumed by a physical partition, over a given 5-minute interval, across all partitions.**
 
-    <img src="images/Throughput2"/><br/>
+    <img src="images/Throughput2.jpg"/><br/>
 
 1. This chart **displays provisioned throughput and Max Request Units per second (RU/s) consumed by each physical partition over the last observed 1-minute interval.**
 
@@ -338,7 +338,7 @@ Cloud service offering a comprehensive SLA for:
 1. The chart displays the **Availability is reported as % of successful request over the past hour, where successful is defined in the DocumentDB SLA.**
 
     <img src="images/availability.jpg"/><br/>
-
+    
     #### Charts included under Latency menu.
 
 1. Click on **Latency** menu to view the graphs.

@@ -17,7 +17,7 @@
 7.	Provide the following details in the Add directory blade.<br/>
     -	ID : Provide any unique name.
     -	API : **SQL** 
-    -	Resource group : Select **Create new** and type the name of the new resource group to be created. <br/>
+    -	Resource group : Select **Use Existing** resource group. <br/>
     -   Location: East US
     -   Enable geo-redundancy: No
     Click on **Create**.<br/>

@@ -1,7 +1,7 @@
 # Module 3: Migrate MongoDB Application to Azure Cosmos DB(SQL API) 
 ## Access Cosmos DB account with SQL API (created in Module-1)
 1. **Launch** a **browser** and navigate to https://portal.azure.com. **Login** with your **Microsoft Azure** credentials.<br/>
-2. **Click** on **Resource Group** which contains the all the resources required for **Cosmbosdb-Hackfest** then click on **Overview** tab and finally click on created **Azure Cosmos DB account**(with SQL API).<br/>
+2. **Click** on **Resource Group** provided which contains the all the resources, click on created **Azure Cosmos DB account**(with SQL API) under **Overview** tab.<br/>
 <img src="images/sqlcosmos.jpg"/><br/>
 3. **Click** on **Keys** option present under Cosmos DB Account blade, and copy **URI** and **PRIMARY KEY**.<br/>
 

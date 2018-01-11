@@ -27,7 +27,7 @@
 <img src="images/fsbrowse.png"/><br/>
 #### Access Local MongoDB and Verify Collections
 
-1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
+1. Click Applications in the top left corner of the JumpVM desktop and start the Terminal Emulator. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
 <img src="images/mongo.jpg"/><br/>
 1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application.<br/>
 ```bash

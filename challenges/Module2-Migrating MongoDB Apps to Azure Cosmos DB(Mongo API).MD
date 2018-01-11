@@ -323,8 +323,8 @@ Cloud service offering a comprehensive SLA for:
 1. Click on **Storage** menu to view the graphs.
 1. The first graph displays the **Available storage capacity for this collection, current size of the collection data, and index.**
 
-    <img src="data_index_storage_consume_vs_available.jpg"/><br/>
-
+    <img src="images/data_index_storage_consume_vs_available.jpg"/><br/>
+    
 1. Another graph shows the **Current size of data and index stored per physical partition.**
 
     <img src="images/storage1.jpg"/><br/>
@@ -336,8 +336,6 @@ Cloud service offering a comprehensive SLA for:
 
 1. Click on **Availability** menu to view the graphs.
 1. The chart displays the **Availability is reported as % of successful request over the past hour, where successful is defined in the DocumentDB SLA.**
-
-    <img src="images/availability.jpg"/><br/>
     
     #### Charts included under Latency menu.
 

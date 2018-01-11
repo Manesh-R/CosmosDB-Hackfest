@@ -27,7 +27,7 @@
 <img src="images/fsbrowse.png"/><br/>
 #### Access Local MongoDB and Verify Collections
 
-1. Click Applications in the top left corner of the JumpVM desktop and start the Terminal Emulator. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
+1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
 <img src="images/mongo.jpg"/><br/>
 1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application.<br/>
 ```bash
@@ -41,7 +41,7 @@ show collections
 
 1. To start the ContosoAir app service layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below.<br/>
 <img src="images/jumpvm4.jpg"/><br/>
-1. Run **npm start** command. Application should start, Incase of any errors make sure you're in right directory as instructed in previous step.Minmize the terminal once command is executed, do not exit or CTRL+C.<br/>
+1. **Open** the **Terminal**and run **npm start** command. Application should start, Incase of any errors make sure you're in right directory as instructed in previous step.Minmize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm5.jpg"/><br/>
 1. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **ng serve** command in terminal. Minmize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
@@ -91,15 +91,15 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --o
 2.  Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.<br/>
 
 ```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection DealsCollection --file DealsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection DealsCollection --file DealsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contoairdb3 --collection feedbackdb --file feedbackdb.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection feedbackdb --file feedbackdb.bkp
 ```
 <img src="images/importall.jpg"/><br/>
 
@@ -110,16 +110,16 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in Jump VM and enter Primary Connection String Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
+1. Go back to Visual Studio Code IDE in Jump VM and and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** and **Primary Connection String** Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
 ```
-<img src="images/config.jpg"/><br/>
 
 2. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.<br/>
 
 3. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.<br/>
+<img src="images/config.jpg"/><br/>
 
 4. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
 <img src="images/jumpvm4.jpg"/><br/>

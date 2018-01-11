@@ -36,3 +36,12 @@ ng serve
 
 12. **Click** on **Data Explorer** option. It will display the collection created in **Azure Cosmos DB Account**.<br/>
 <img src="images/sqldataexplore.jpg"/><br/>
+
+## Launch the Application
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Web Browser** and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
+1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
+<img src="images/signup.jpg"/><br/>
+1. Once you get login, you will be redirected to **ContosoAir app**.<br/>
+<img src="images/contoso1.jpg"/><br/>
+1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
+<img src="images/contosoapp.jpg"/><br/>

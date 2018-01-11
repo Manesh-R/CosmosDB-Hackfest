@@ -187,7 +187,7 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 
 1. If your applications have predictable traffic patterns based on the time of the day, you can periodically change the write status to the most active geographic region based on time of the day.
 
-> _In this article, we understood how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be globally available. By using Cosmos DB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures._
+> _In this section we discovered how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be globally available. By using Cosmos DB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures._
  
 ### 3.  Cosmos DB Data Analysis with Cosmos 
 #### 3.1 Add Cosmos DB as data Source
@@ -202,9 +202,8 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 <img src="images/connector.jpg"/><br/>
 6. Specify the Cosmos DB account endpoint URL you would like to retrieve the data from as shown below, and Click **OK**.
 <img src="images/cosmosurl.jpg"/><br/>
-```
-Leave the database name, collection name, and SQL statement blank as these fields are optional. Instead, we will use the Navigator to    select the Database and Collection to identify where the data comes from.
-```
+    - Leave the database name, collection name, and SQL statement blank as these fields are optional. Instead, we will use the Navigator to,select the Database and Collection to identify where the data comes from.
+
 7. To use your own account, you can retrieve the URL from the URI box in the Keys blade of the Azure portal.
 <img src="images/cosmoskeyandurl.jpg"/><br/>
 8. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the Primary Key box in the Read-only Keys blade of the Azure portal.

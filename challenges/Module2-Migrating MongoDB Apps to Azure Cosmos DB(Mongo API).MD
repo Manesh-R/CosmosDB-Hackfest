@@ -303,7 +303,7 @@ Cloud service offering a comprehensive SLA for:
 1. Click on **Throughput** menu to view the graphs.
 1. The first graph displayed is to find **Number of requests over the 1 hour period.**
 
-   <img src="images/Throughput1"/><br/>
+   <img src="images/Throughput1.jpg"/>
 
 1. The second graph is to monitor **Number of requests that failed due to exceeding throughput or storage capacity provisioned for the collection per 5 min.**
 1. The third chart displays **provisioned throughput and Max Request Units per second (RU/s) consumed by a physical partition, over a given 5-minute interval, across all partitions.**
@@ -316,21 +316,21 @@ Cloud service offering a comprehensive SLA for:
 
 1. The fourth chart shows the **Average Consumed Request Units per second (RU/s) over the 5-minute period vs provisioned RU/s.**
 
-    <img src="Throughput4"/><br/>
-
+    <img src="images/Throughput4.jpg"/><br/>
+    
     #### Charts included under Storage menu.
 
 1. Click on **Storage** menu to view the graphs.
 1. The first graph displays the **Available storage capacity for this collection, current size of the collection data, and index.**
 
-    <img src="data_index_storage_consume_vs_available"/><br/>
+    <img src="data_index_storage_consume_vs_available.jpg"/><br/>
 
 1. Another graph shows the **Current size of data and index stored per physical partition.**
 
-    <img src="images/storage1"/><br/>
+    <img src="images/storage1.jpg"/><br/>
 1. The third chart shows the **Current number of documents stored per physical partition**.
 
-    <img src="images/storage2"/><br/>
+    <img src="images/storage2.jpg"/><br/>
 
     #### Charts included under Availability menu.
 

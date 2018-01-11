@@ -1,6 +1,6 @@
 # Module 3: Migrate MongoDB Application to Azure Cosmos DB(SQL API) 
 ## Access Cosmos DB account with SQL API (created in Module-1)
-1. **Launch** a **browser** and navigate to https://portal.azure.com. **Login** with your ** Microsoft Azure** credentials.<br/>
+1. **Launch** a **browser** and navigate to https://portal.azure.com. **Login** with your **Microsoft Azure** credentials.<br/>
 2. **Click** on **Resource Group** which contains the all the resources required for **Cosmbosdb-Hackfest** then click on **Overview** tab and finally click on created **Azure Cosmos DB account**(with SQL API).<br/>
 <img src="images/sqlcosmos.jpg"/><br/>
 3. **Click** on **Keys** option present under Cosmos DB Account blade, and copy **URI** and **PRIMARY KEY**.<br/>
@@ -39,7 +39,7 @@ ng serve
 
 ## Launch the Application
 1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Web Browser** and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
-1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
+1. You will see the **sign-up** page. You need to **login** to App using your **Microsoft Account**(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
 <img src="images/signup.jpg"/><br/>
 1. Once you get login, you will be redirected to **ContosoAir app**.<br/>
 <img src="images/contoso1.jpg"/><br/>

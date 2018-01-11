@@ -48,7 +48,7 @@ show collections
 
     > Note This  may take upto a minute to start this website. 
 
-1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Web Browser** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
 1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
 <img src="images/signup.jpg"/><br/>
 1. Once you get login, you will be redirected to **ContosoAir app**.<br/>
@@ -110,7 +110,7 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in Jump VM and and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** and **Primary Connection String** Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
+1. Go back to Visual Studio Code IDE in Jump VM and and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**,type **contosoairdb3** against **DOCUMENT_DB_DATABASE** and **Primary Connection String** Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb

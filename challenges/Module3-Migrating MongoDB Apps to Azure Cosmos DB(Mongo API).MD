@@ -11,20 +11,25 @@
 
 6. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** in **config.js** file which is already opened in **Visual Studio Code** IDE and save this file.<br/>
 <img src="images/sqlconfig.jpg"/><br/>
+
 7. **Go** to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below:<br/>
 
 8. Now execute the following commands one by one in command prompt.<br/>
+
 ```bash
 node sql_db_flightinsert.js
 node sql_db_insert.js
 npm start
 ```
 <img src="images/sqlcommands.jpg"/><br/>
+
 9. Now, to start the **ContosoAir Website** layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **ng serve** command in terminal. Minimize the terminal once command is executed, do not exit or CTRL+C.<br/>
+
 ```bash
 ng serve
 ```
 <img src="images/jumpvm6.jpg"/><br/>
+
 10. It will create three different collections named **SeatsCollection**, **DealsCollection** and **BookingsCollection** with sample data.<br/>
 
 11. Switch to **Azure Portal**, navigate to **Resource groups** option present in the favourites menu on the left side panel and select the resource group then click on **Azure Cosmos DB Account** named.<br/>

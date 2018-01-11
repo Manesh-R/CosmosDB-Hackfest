@@ -4,16 +4,16 @@
 2. **Click** on **Resource Group** provided which contains the all the resources, click on created **Azure Cosmos DB account**(with SQL API) under **Overview** tab.<br/>
 <img src="images/sqlcosmos.jpg"/><br/>
 3. **Click** on **Keys** option present under Cosmos DB Account blade, and copy **URI** and **PRIMARY KEY**.<br/>
-
+<img src="images/sqlkey.jpg"/><br/>
 4. **Go** back to **Visual Studio Code** IDE and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY** and **DOCUMENT_DB_DATABASE** as in the **config.js**.<br/>
 
 5. **Navigate** back to the Azure Portal's Resource groups option present in the favourites menu on the left side panel and select the **resource group** and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in **Cosmos DB Account** blade.<br/>
 
 6. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** in **config.js** file which is already opened in **Visual Studio Code** IDE and save this file.<br/>
-<img src="images/sqlconfig.jpg"/><br/>
+<img src="images/jumpvm4.jpg"/><br/>
 
 7. **Go** to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services in file system, right click and select **Open Terimal Here** as shown below:<br/>
-
+<img src="images/sqlkey.jpg"/><br/>
 8. Now execute the following commands one by one in command prompt.<br/>
 
 ```bash

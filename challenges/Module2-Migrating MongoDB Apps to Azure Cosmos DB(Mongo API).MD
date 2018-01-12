@@ -236,14 +236,18 @@ Now let's update the application to use secondary region as read region and expe
 1. Access JumpVM and launch **Visual Studio Code** if not running already
 
 1. Update your newly added secondary region in Cosmos DB againt **DOCUMENT_DB_PREFERRED_REGION** in **config.js** in Services project.
+   <img src="images/region.png"/><br/>
 
-1. Open **flightscontroller.js** file available under **api** >> **flights** folder in the Sevices Project.
+1. Open **flights.controller.js** file available under **api** >> **flights** folder in the Sevices Project.
+  <img src="images/openflightscs.png"/><br/>
 
-1. Scroll down and comment the line by adding **//** in front of line . This will disable the default query fetching flights data
+1. Scroll down and comment the line number 66 by adding **//** in front of line . This will disable defaulr mode of quering  flights data from primary region
 
-1. Uncomment line # . If you look closely this line is specifying the readprefrence to query data against. 
+  <img src="images/line66.png"/><br/>
 
-1. Save both **config.js** and **flightscontroller.js** files. 
+1. Uncomment line #68 . If you look closely this line is specifying the readprefrence to query data against. 
+   <img src="images/line68.png"/><br/>
+1. Save both **config.js** and **flights.controller.js** files. 
 
 1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
 <img src="images/jumpvm4.jpg"/><br/>

@@ -15,7 +15,7 @@
     "restify": "^4.3.0",
     "web-request": "^1.0.7",
     "mongodb": "2.2.27",
-    "mongodb-core": "2.1.11"
+    "mongodb-core": "2.1.11",
     "async": "^2.5.0"
   },
   "scripts": {

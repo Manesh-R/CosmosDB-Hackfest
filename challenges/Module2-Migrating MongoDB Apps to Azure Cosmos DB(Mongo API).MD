@@ -169,24 +169,24 @@ Configure FlightsCollection data to leverage the Partitions
 
 1. Click on Add Collection Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb3** as the database ID and **FlightsCollectionPartitioned** as the collection name. Enter **stop** as partition key, leave all other settings as default.
 
- ![](images/createnewcollection.jpg)
+   ![](images/createnewcollection.jpg)
 
 4. Now We'll insert the the **FlightsCollection** data into this partitioned collection. For this, We've already created a nodejs program named **cosmos_mongo_partition_insert.js** . run **node cosmos_mongo_partition_insert.js** the ContosoAir.Services root directory. Go to ContosoAir.Services by issuing **cd /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services** You can use **ls** to verify the files in the directory
 
-  ![](images/insertpartitiondat.jpg)
+    ![](images/insertpartitiondat.jpg)
 
 5. Data is now inserted, let's go to Azure portal to verify, Go to **Browse** in settings blade of Cosmos DB Account.
 
 6. You'll see that under documents, there's another column named **stop** along with **id**. Click on Scale and settings to verify the partition. 
 
- ![](images/scalesettings.jpg)
+    ![](images/scalesettings.jpg)
 
 7. In order to use this collection in the application, We need to edit **config.js** of Services application and replace following value with newly created collection. Save the file once changed.
     **DOCUMENT_DB_FLIGHT**           'FlightsCollection',
 replace with newly created collection with partitioning 
    **DOCUMENT_DB_FLIGHT**:           'FlightsCollectionPartitioned',
    
-  ![](images/configpartition.jpg)
+    ![](images/configpartition.jpg)
   
 8. In order to test the application, exit the terminal running **npm start** for the application and start it again
 

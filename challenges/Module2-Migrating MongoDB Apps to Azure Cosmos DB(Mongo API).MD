@@ -193,8 +193,75 @@ replace with newly created collection with partitioning
 
 ## Scenario 4: Global Distribution
 
-To be added Later.
 
+ > Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
+
+   > Replication ensures that your storage account meets the  [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
+
+   > _To test the above scenario of_ **Part D**, _lets replicate the database into multiple regions. Below is the procedure for the same._
+   
+### Replicate data globally   
+1.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
+2.  Select the **Azure Cosmos DB account(i.e,cosmosdb321)**.<br/>
+3.  In the Cosmos DB account page click on **Replicate data globally** tab under the **Settings** tile.<br/> 
+<img src="images/replicate.jpg"/><br/>
+4.  In the new page that appear, click on **Add new region** under **Read regions**.<br/>
+<img src="images/addregion.jpg"/><br/> 
+
+ > For experiencing the Latency difference, replicate Azure Cosmos DB
+   > - Near to your current location (Low Latency).
+   > - Far away from your current location (High Latency).
+   
+      > - You can distribute your data to any number of Azure regions, with the click of a button. This enables you to put your data where your users are, ensuring the lowest possible latency to your customers.  
+
+5.  If you want to add more regions, click on Add new region again and select the required region and click on **Save**.
+<img src="images/addregion2.jpg"/><br/>
+
+  > **Note** :
+   > - It takes some time near about 8 to 10 mins to complete the deployment of the resources 
+
+### NodeJS Libraries for Geo Replication
+CosmosDB with MongoAPI supports same read prefrences available in NodeJS Mongo libraries. With read preferences you can control from where your Reads are happing in a Replicaset and from Mongo DB also in a shard. Let’s go through the different types of read Preferences that are available and what they mean.
+
+* **ReadPreference.PRIMARY**: Read from primary only. All operations produce an error (throw an exception where applicable) if primary is unavailable. Cannot be combined with tags (This is the default.)
+* **ReadPreference.PRIMARY_PREFERRED**: Read from primary if available, otherwise a secondary.
+* **ReadPreference.SECONDARY**: Read from secondary if available, otherwise error.
+* **ReadPreference.SECONDARY_PREFERRED**: Read from a secondary if available, otherwise read from the primary.
+* **ReadPreference.NEAREST**: All modes read from among the nearest candidates, but unlike other modes, NEAREST will include both the primary and all secondaries in the random selection. The name NEAREST is chosen to emphasize its use, when latency is most important. For I/O-bound users who want to distribute reads across all members evenly regardless of ping time, set secondaryAcceptableLatencyMS very high. See “Ping Times” below. A strategy must be enabled on the ReplSet instance to use NEAREST as it requires intermittent setTimeout events, see Db class documentation
+
+Additionally you can now use tags with all the read preferences to actively choose specific sets of regions in a globally distributed Cosmos DB. For example, if you wanto use West US as read region, you can specify this tag  { region: ‘West US’, size: ‘large’ } with read prefrences.
+### Connect Application to Secondary region
+
+Now let's update the application to use secondary region as read region and experience the latency diffrene used earlier.
+1. Access JumpVM and launch **Visual Studio Code** if not running already
+
+1. Update your newly added secondary region in Cosmos DB againt **DOCUMENT_DB_PREFERRED_REGION** in **config.js** in Services project.
+
+1. Open **flightscontroller.js** file available under **api** >> **flights** folder in the Sevices Project.
+
+1. Scroll down and comment the line by adding **//** in front of line . This will disable the default query fetching flights data
+
+1. Uncomment line # . If you look closely this line is specifying the readprefrence to query data against. 
+
+1. Save both **config.js** and **flightscontroller.js** files. 
+
+1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
+<img src="images/jumpvm4.jpg"/><br/>
+<img src="images/jumpvm5.jpg"/><br/>
+
+1. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
+if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
+<img src="images/jumpvm6.jpg"/><br/>
+1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.<br/>
+
+1. if you see login page, Login with your Microsoft account(live-id) or move to next step.
+1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
+<img src="images/contosotime.jpg"/><br/>
+
+You should notice that latency is now changed when loading the flight data in comparision to default
+
+   > _Awesome, you have enable geo-replication on your databases and configured your application to use secondary regions for read operations.
+   
 ## Scenario 5: Integration with Azure Functions
 
 ### Create an Azure Function App

@@ -240,27 +240,21 @@ Now let's update the application to use secondary region as read region and expe
 
 1. Open **flights.controller.js** file available under **api** >> **flights** folder in the Sevices Project.
   <img src="images/openflightscs.png"/><br/>
-
 1. Scroll down and comment the line number 66 by adding **//** in front of line . This will disable defaulr mode of quering  flights data from primary region
-
   <img src="images/line66.png"/><br/>
-
 1. Uncomment line #68 . If you look closely this line is specifying the readprefrence to query data against. 
    <img src="images/line68.png"/><br/>
 1. Save both **config.js** and **flights.controller.js** files. 
-
 1. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
-<img src="images/jumpvm4.jpg"/><br/>
-<img src="images/jumpvm5.jpg"/><br/>
-
+   <img src="images/jumpvm4.jpg"/><br/>
+   <img src="images/jumpvm5.jpg"/><br/>
 1. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
 if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
-<img src="images/jumpvm6.jpg"/><br/>
+   <img src="images/jumpvm6.jpg"/><br/>
 1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.<br/>
-
-1. if you see login page, Login with your Microsoft account(live-id) or move to next step.
+1. if you see login page, Login with your Microsoft account(live-id) or move to next step.<br/>
 1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
-<img src="images/contosotime.jpg"/><br/>
+   <img src="images/contosotime.jpg"/><br/>
 
 You should notice that latency is now changed when loading the flight data in comparision to default
 

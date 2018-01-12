@@ -1,4 +1,4 @@
-# Lab 2a: Migrate MongoDB Applications to Azure Cosmos DB(Mongo API)
+# Module 2: Migrate MongoDB Applications to Azure Cosmos DB(Mongo API)
 ## Scenario 1 Understand the Flight Reservation App, Local MongoDB and test Application
 ### Understand Flight reservation application 
 #### Access Jump VM 
@@ -110,10 +110,11 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in Jump VM and and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**,type **contosoairdb3** against **DOCUMENT_DB_DATABASE** and **Primary Connection String** Against **MONGO_DB_COONECTION_STRING**(add database name contosoairdb3 before question mark in primary connection string) as in the config.js.<br/>
+1. Go back to Visual Studio Code IDE in Jump VM and and paste the **Primary Connection String** Against **MONGO_DB_COONECTION_STRING**
+it should look something like below
 
 ```bash
-mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/**contosoairdb3**?ssl=true&replicaSet=globaldb
+mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
 ```
 
 2. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the resource group "" and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.<br/>

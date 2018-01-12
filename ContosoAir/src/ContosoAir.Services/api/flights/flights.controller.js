@@ -17,6 +17,7 @@ var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
 var MongoDBConnectionString = config.MONGO_DB_CONNECTION_STRING;
 var MongoDBCollection = config.MONGO_DB_COLLECTION;
+var ReadPreference = require('mongodb').ReadPreference
 
 // Get preferred region from config file
 var DocumentBase = require('documentdb').DocumentBase;
@@ -42,7 +43,7 @@ let getFlight = (req, res) => {
     return res.send(filteredData);
 };
 
-// Get flight data from SqlDB api
+// Get flight data from Mongo/SQL api
 let get = (req, res) => {
     console.log('flights:get');
 
@@ -56,12 +57,15 @@ let get = (req, res) => {
             }
             else {
                 // Fetch the data from the mongodb collection
-                console.log('get data from local db');
+                console.log('get data from Mongo db');
                 let resultString = new Array();
                 var end_time;
                 var start_time = (new Date).getTime();
 
-                db.collection(config.DOCUMENT_DB_FLIGHT).find().toArray(function (err, results) {
+                //Comment below when using Mongo Geo Replication
+                  db.collection(config.DOCUMENT_DB_FLIGHT).find().toArray(function (err, results) { //Orignal
+                //Comment below when using MongoDB local instance or single region deployment
+                //db.collection(config.DOCUMENT_DB_FLIGHT, { readPreference: ReadPreference.SECONDARY }).find().toArray(function (err, results) {
                     if (!err) {
                         end_time = (new Date).getTime();
                         console.log(results.length);

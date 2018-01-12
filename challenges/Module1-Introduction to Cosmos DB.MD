@@ -217,7 +217,7 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 #### 3.2 Flattening, transforming JSON documents and developing dashboards
 1. Switch to the Power BI Query Editor window, where the Document column in the center pane. 
 <img src="images/queryeditor.jpg"/><br/>
-2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Shares Outstanding and then click **OK**.
+2. **Click** on the expander at the right side of the Document column header. The context menu with a list of fields will appear. Select the fields you need for your report, for instance, id, Ticker, Profit Margin, Institutional Owership, Sector, Shares Outstanding and then click **OK**.<br/>
 <img src="images/selectrecord.jpg"/><br/>
 3. The center pane will display a preview of the result with the fields selected.
 <img src="images/records.jpg"/><br/>

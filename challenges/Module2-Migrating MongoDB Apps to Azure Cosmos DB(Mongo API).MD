@@ -171,23 +171,24 @@ Configure FlightsCollection data to leverage the Partitions
 
  ![](images/createnewcollection.jpg)
 
-1. Now We'll insert the the **FlightsCollection** data into this partitioned collection. For this, We've already created a nodejs program named **cosmos_mongo_partition_insert.js** . run **node cosmos_mongo_partition_insert.js** the ContosoAir.Services root directory. Go to ContosoAir.Services by issuing **cd /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services** You can use **ls** to verify the files in the directory
+4. Now We'll insert the the **FlightsCollection** data into this partitioned collection. For this, We've already created a nodejs program named **cosmos_mongo_partition_insert.js** . run **node cosmos_mongo_partition_insert.js** the ContosoAir.Services root directory. Go to ContosoAir.Services by issuing **cd /home/dbadmin/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Services** You can use **ls** to verify the files in the directory
 
-  ![](images/insertpartitiondata.jpg.jpg)
+  ![](images/insertpartitiondat.jpg)
 
-1. Data is now inserted, let's go to Azure portal to verify, Go to **Browse** in settings blade of Cosmos DB Account	
- 
+5. Data is now inserted, let's go to Azure portal to verify, Go to **Browse** in settings blade of Cosmos DB Account.
 
-1. You'll see that under documents, there's another column named **stop** along with **id**. Click on Scale and settings to verify the partition. 
+6. You'll see that under documents, there's another column named **stop** along with **id**. Click on Scale and settings to verify the partition. 
 
  ![](images/scalesettings.jpg)
 
-1. In order to use this collection in the application, We need to edit **config.js** of Services application and replace following value with newly created collection. Save the file once changed.
-
-    DOCUMENT_DB_FLIGHT:           'FlightsCollection',
+7. In order to use this collection in the application, We need to edit **config.js** of Services application and replace following value with newly created collection. Save the file once changed.
+    **DOCUMENT_DB_FLIGHT**           'FlightsCollection',
 replace with newly created collection with partitioning 
-    DOCUMENT_DB_FLIGHT:           'FlightsCollectionPartitioned',
-1. In order to test the application, exit the terminal running **npm start** for the application and start it again
+   **DOCUMENT_DB_FLIGHT**:           'FlightsCollectionPartitioned',
+   
+  ![](images/configpartition.jpg)
+  
+8. In order to test the application, exit the terminal running **npm start** for the application and start it again
 
 > Awesome! In this scenario, you learned the Partitioning feature of  Azure Cosmos DB.
 

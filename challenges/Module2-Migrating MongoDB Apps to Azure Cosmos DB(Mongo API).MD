@@ -20,7 +20,7 @@
 <img src="images/jumpvm2.jpg"/><br/>
 1. VS Code should have src folder already opened, Notice the folders hierarchy<br/>
 <img src="images/projects.png"/><br/>
-1. ContosoAir application is two tiered application, One frontend application built on AngularJS named **ContosoAir.Website** and API application named **ContosoAir.Services** build with NodeJS.<br/>
+1. ContosoAir application is 3-tiered application, One frontend application built on AngularJS named **ContosoAir.Website** and API application named **ContosoAir.Services** build with NodeJS and a data backend running on MongoDB.<br/>
 1. All connectivity information required for the API application is maintained in **config.js** , As shown below.<br/>
 <img src="images/configjs.png"/><br/>
 1. Following is the file system location for application binaries /home/CosmosDB-Hackfest/ContosoAir/src/.<br/>

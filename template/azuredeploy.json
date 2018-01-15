@@ -36,24 +36,9 @@
     "vmStorageAccountContainerName": "vhds",
     "virtualNetworkName": "vnet",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/','subnet')]",
-    "storageAccountName": "[concat('storage',uniqueString(resourceGroup().id))]"
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/','subnet')]"
   },
   "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "comments": "Storage Account",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "Storage Account"
-      },
-      "kind": "Storage",
-      "sku": {
-        "name": "Standard_LRS"
-      }
-    },
     {
       "apiVersion": "2017-04-01",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -238,7 +223,6 @@
       "location": "[resourceGroup().location]",
       "comments": "Jump VM name",
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('jumpNicName'))]"
       ],
       "tags": {
@@ -276,13 +260,12 @@
       }
     },
     {
-      "apiVersion": "2015-06-15",
+      "apiVersion": "2016-04-30-preview",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('powerBIVirtualMachineName')]",
       "location": "[resourceGroup().location]",
       "comments": "PowerBI VM",
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('powerBINicName'))]"
       ],
       "tags": {
@@ -295,56 +278,28 @@
         "osProfile": {
           "computerName": "[parameters('powerBIVirtualMachineName')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+                              "windowsConfiguration": {
+                        "provisionVmAgent": "true"
+                    }
         },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-              "osDisk": {
-             "name": "osdisk",
-            "vhd": {
-             "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')),'2016-01-01').primaryEndpoints.blob,'vhds/', parameters('powerBIVirtualMachineName'),'-','vmOSDisk','.vhd')]"
-            },
-            "caching": "ReadWrite",
-            "createOption": "FromImage"
-            },
-          "dataDisks": [
-          ]
-        },
+                "storageProfile": {
+                    "imageReference": {
+                        "id": "/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-powerbivmimage/providers/Microsoft.Compute/images/cosmos-powerbivmimage"
+                    },
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    }
+                },
         "networkProfile": {
           "networkInterfaces": [
             {
               "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('powerBINicName'))]"
             }
           ]
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('powerBIVirtualMachineName'),'/install_desktop_client_Extension')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('powerBIVirtualMachineName'))]"
-      ],
-      "tags": {
-        "displayName": "powerBIExtension"
-      },
-      "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.3",
-        "autoUpgradeMinorVersion": "true",
-        "settings": {
-          "fileUris": [
-            "https://cosmosdb.blob.core.windows.net/powerbidesktop/Install_Tools.ps1"
-          ],
-          "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File Install_Tools.ps1"
         }
       }
     }

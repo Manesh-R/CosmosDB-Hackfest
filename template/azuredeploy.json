@@ -285,7 +285,7 @@
         },
                 "storageProfile": {
                     "imageReference": {
-                        "id": "/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-powerbivmimage/providers/Microsoft.Compute/images/cosmos-powerbivmimage"
+                        "id": "/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-powerbi-vmimage/providers/Microsoft.Compute/images/cosmos-powerbi-vmimage"
                     },
                     "osDisk": {
                         "createOption": "fromImage",

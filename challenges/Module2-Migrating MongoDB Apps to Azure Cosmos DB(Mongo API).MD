@@ -27,7 +27,7 @@
 <img src="images/fsbrowse.png"/><br/>
 #### Access Local MongoDB and Verify Collections
 
-1. Start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
+1. Open the **Terminal**, then start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the mongo as shown below.<br/>
 <img src="images/mongo.jpg"/><br/>
 1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application.<br/>
 ```bash
@@ -48,7 +48,7 @@ show collections
 
     > Note This  may take upto a minute to start this website. 
 
-1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Web Browser** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
+1. Copy **localhost URL** [http://localhost:4200](http://localhost:4200) from **here** and paste it in **Web Browser** browser and press enter. There's a shortcut created for your already on desktop for this, you can open website using that as well.<br/>
 1. You will see the sign-up page. You need to login to App using your Microsoft Account(formerly live-id). If you do not have a live-id, you can create one by following instructions given on page.<br/>
 <img src="images/signup.jpg"/><br/>
 1. Once you get login, you will be redirected to **ContosoAir app**.<br/>
@@ -77,7 +77,7 @@ show collections
 <img src="images/cosmosdb3.jpg"/><br/>
 ### Migrate Database to Azure Cosmos DB
 In this exercise, We will use mongoexport to export the data from MongoDB running locally in the jump-VM and then we will use mongoimport to insert this dataset into newly created Cosmos DB.<br/>
-1. Open Terminal on Jump VM,(Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file.<br/>
+1. Open **Terminal** on Jump VM, (Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), verify that MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file.<br/>
 
 ```bash
 sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
@@ -88,7 +88,7 @@ sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --o
 ```
 <img src="images/allexport.jpg"/><br/>
 
-2.  Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the HOST, PORT, USERNAME and PASSWORD with the parameters in below command with values you copied in above step.<br/>
+2.  Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the **HOST, PORT, USERNAME** and **PASSWORD** with the parameters in below command with values you copied in above step.<br/>
 
 ```bash
 mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
@@ -110,7 +110,7 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and and paste the **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING**
+1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING**
 it should look something like below
 
 ```bash
@@ -129,7 +129,7 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 5. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
 if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
-6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.<br/>
+6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **here** and paste it in **Mozilla firefox** browser and press enter.<br/>
 
 7. You will see the sign-up page. Enter your microsoft Credential here.<br/>
 <img src="images/signup.jpg"/><br/>

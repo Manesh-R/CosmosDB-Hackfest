@@ -47,8 +47,7 @@
 #### 1.3.1	Access Windows VM and Launch Data migration tool.
 
 
-1.  Access PowerBI VM(Windows) via RDP, Open Internet Explorer inside the Windows VM and download the data which we would  migrate to cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/> (http://bit.ly/2CYzX8I)
-A zip file will download, extract and open the file to view the json data set.<br/>
+1.  In the Azure portal locate the PowerBIVM in your resource group and connect to the IP address via RDP. Login/Password information was included in the lab email. Next, open Internet Explorer inside the Windows VM and download the data which we will migrate to Cosmos DB by clicking [here](http://jsonstudio.com/wp-content/uploads/2014/02/stocks.zip)<br/> (http://bit.ly/2CYzX8I) (a zip file will download. Extract and open the file to view the json data set within.)<br/>
 2.  **Launch** your **data migration tool** by opening the **dtui.exe** application. (under C:\Packages)<br/>
 <img src="images/migrationtool.jpg"/><br/>   
 3.  In the **DocumentDB Data Migration Tool** blade that appear, Click on **Next**.<br/>

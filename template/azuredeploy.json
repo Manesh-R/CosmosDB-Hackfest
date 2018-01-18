@@ -231,7 +231,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "id": "[concat('/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-jumpvm-images/providers/Microsoft.Compute/images/cosmos-jumpimage-', resourceGroup().location)]"
+                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-jumpvm-images/providers/Microsoft.Compute/images/cosmos-jumpimage-', resourceGroup().location)]"
                     },
                     "osDisk": {
                         "createOption": "FromImage",
@@ -274,7 +274,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "id": "[concat('/subscriptions/b23accae-e655-44e6-a08d-85fb5f1bb854/resourceGroups/cosmos-powerbi-vmimage/providers/Microsoft.Compute/images/cosmospowerbi-', resourceGroup().location)]"
+                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-powerbi-vmimage/providers/Microsoft.Compute/images/cosmospowerbi-', resourceGroup().location)]"
                     },
                     "osDisk": {
                         "createOption": "fromImage",

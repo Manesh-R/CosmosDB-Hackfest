@@ -231,7 +231,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-jumpvm-images/providers/Microsoft.Compute/images/cosmos-jumpimage-', resourceGroup().location)]"
+                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-hackfest-images/providers/Microsoft.Compute/images/cosmos-jumpimage-', resourceGroup().location)]"
                     },
                     "osDisk": {
                         "createOption": "FromImage",

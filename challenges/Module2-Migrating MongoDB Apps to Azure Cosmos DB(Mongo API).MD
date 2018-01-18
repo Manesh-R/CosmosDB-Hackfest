@@ -255,7 +255,7 @@ if not running, you can manually start it to by going to /home/CosmosDB-Hackfest
 1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **terminal** and paste it in **Mozilla firefox** browser and press enter.<br/>
 1. if you see login page, Login with your Microsoft account(live-id) or move to next step.<br/>
 1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
-   <img src="images/sea.png"/><br/>
+   <img src="images/japanreplication.png"/><br/>
 
 You should notice that latency is now changed when loading the flight data in comparision to default
 

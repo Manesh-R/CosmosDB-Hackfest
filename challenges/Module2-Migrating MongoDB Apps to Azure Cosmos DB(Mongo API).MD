@@ -110,8 +110,8 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **URI** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb3) before question mark in connection string.
-it should look something like below
+1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **HOST** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb3) before question mark in connection string.
+it should look something like below:
 
 ```bash
 mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/*contosoairdb3*?ssl=true&replicaSet=globaldb
@@ -122,7 +122,7 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 3. Copy the **WRITE REGION** and paste it against **DOCUMENT_DB_PREFERRED_REGION** key in **config.js** file which is already opened in Visual Studio Code IDE and save this file.<br/>
 <img src="images/config.jpg"/><br/>
 
-4. Open the terminal window running already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
+4. Open the terminal window already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
 <img src="images/jumpvm4.jpg"/><br/>
 <img src="images/jumpvm5.jpg"/><br/>
 
@@ -162,12 +162,12 @@ You should notice that latency is now changed when loading the flight data
 
 **Configure FlightsCollection data to leverage the Partitions**
 
-1. In this exercise, we'll create another collection named **FlightsCollectionPartitioned** in existing **contosoairdb3** with number of **Stops** as the partition key
-1. Open Azure Portal and access the Cosmos DB account created earlier, Go to **Browse** in settings blade
+1. In this exercise, we'll create another collection named **FlightsCollectionPartitioned** in existing **contosoairdb3** with number of **Stops** as the partition key.
+1. Open Azure Portal and access the Cosmos DB account created earlier, Go to **Browse** in settings blade.
 
     ![](images/createcollection.jpg)
 
-1. Click on **Add Collection** Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb3** as the **Database Id** and **FlightsCollectionPartitioned** as the **collection Id**. Enter **stop** as **Shared key**, leave all other settings as default.
+1. Click on **Add Collection** Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb3** as the **Database Id** and **FlightsCollectionPartitioned** as **collection Id**. Enter **stop** as **Shared key**, leave all other settings as default.
 
    ![](images/createnewcollection.jpg)
 
@@ -178,7 +178,7 @@ replace with newly created collection with partitioning
    
     ![](images/configpartition.jpg)
 
-5. Now we'll insert the the **FlightsCollection** data into this partitioned collection. For this, we already created a nodejs program named **cosmos_mongo_partition_insert.js** . In ContosoAir.Services root directory open the **Terminal** and run the **node cosmos_mongo_partition_insert.js** command. You can use **ls** to verify the files in the directory
+5. Now we'll insert the the **FlightsCollection** data into this partitioned collection. For this, we already created a nodejs program named **cosmos_mongo_partition_insert.js** . You can use **ls** to verify the files in the directory. In ContosoAir.Services root directory open the **Terminal** and run the **node cosmos_mongo_partition_insert.js** command. 
 
     ![](images/insertpartitiondat.jpg)
  
@@ -228,7 +228,7 @@ CosmosDB with MongoAPI supports same read preference available in NodeJS Mongo l
 * **ReadPreference.PRIMARY_PREFERRED**: Read from primary if available, otherwise a secondary.
 * **ReadPreference.SECONDARY**: Read from secondary if available, otherwise error.
 * **ReadPreference.SECONDARY_PREFERRED**: Read from a secondary if available, otherwise read from the primary.
-* **ReadPreference.NEAREST**: All modes read from among the nearest candidates, but unlike other modes, NEAREST will include both the primary and all secondaries in the random selection. The name NEAREST is chosen to emphasize its use, when latency is most important. For I/O-bound users who want to distribute reads across all members evenly regardless of ping time, set secondaryAcceptableLatencyMS very high. See “Ping Times” below. A strategy must be enabled on the ReplSet instance to use NEAREST as it requires intermittent setTimeout events, see Db class documentation
+* **ReadPreference.NEAREST**: All modes read from among the nearest candidates, but unlike other modes, NEAREST will include both the primary and all secondaries in the random selection. The name NEAREST is chosen to emphasize its use, when latency is most important. For I/O-bound users who want to distribute reads across all members evenly regardless of ping time, set secondaryAcceptableLatencyMS very high. See “Ping Times” below. A strategy must be enabled on the ReplSet instance to use NEAREST as it requires intermittent setTimeout events, see Db class documentation.
 
 Additionally you can now use tags with all the read preferences to actively choose specific sets of regions in a globally distributed Cosmos DB. For example, if you wanto use West US as read region, you can specify this tag  { region: ‘West US’, size: ‘large’ } with read preferences.
 ### Connect Application to Secondary region
@@ -255,7 +255,7 @@ if not running, you can manually start it to by going to /home/CosmosDB-Hackfest
 1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from **here** and paste it in **Mozilla firefox** browser and press enter.<br/>
 1. If you see login page, Login with your Microsoft account(live-id) or move to next step.<br/>
 1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
-   <img src="images/sea.png"/><br/>
+  <img src="images/japanreplication.png"/><br/>
 
 You should notice that latency is now changed when loading the flight data in comparision to default.
 
@@ -277,7 +277,7 @@ In this we will create Azure Function App.<br/>
 *	**OS**: Windows
 *	**Hosting Plan**: Consumption Plan
 *	**Location**: Location of your RG
-*	**Storage**: Use Existing and choose available storage account<br/>
+*	**Storage**: Click on **Create new**<br/>
     Click on **Create**.<br/>
     <img src="images/fnxinfo.jpg"/><br/>
 5. Click on **Go to Resource** Once provisioning is completed.<br/>
@@ -311,7 +311,7 @@ In this we will create Azure Function App.<br/>
 6. Click on **Save** button.<br/>
 7. Now, click on the **Integrate** option listed in **"FetchDealsData"** function in the **Function Apps** blade.<br/>
 8. Under **Inputs** section, click on **+ New Input** and select **Azure Cosmos DB** then click **Select** button at the bottom of page.<br/>
-<img src="images/Integrate.jpg"/><br/>
+<img src="images/inputs.jpg"/><br/>
 8. Enter **Document parameter name** as **SelectDealsData**, **Database name** as **contosoairdb3** and **Collection name** as **DealsCollection** in respective textboxes.<br/>
 9. Copy the **SQL query** given below and paste it into **SQL Query (optional)** textbox.<br/>
 
@@ -324,9 +324,10 @@ In this we will create Azure Function App.<br/>
     ![](image/SqlQuery.jpg)
     
 10. To enter **Cosmos DB account connection,** click on the **new** link given beside **Cosmos DB account connection** textbox.<br/>
+<img src="images/Integrate.jpg"/><br/>
 11. You will be redirected to **Cosmos DB Account blade**, select the **MongoDB DB Account** as shown below.<br/>
 <img src="images/selectmongodocdb.jpg"/><br/>
-12. Now, click **Save** button ![](img/save.jpg) button.<br/>
+12. Now, go to **FetchDealsData** and click on **Save** button ![](img/save.jpg) button.<br/>
 13. To check whether the function is integrated, click on **FetchDealsData** function present under **AureFunctionForDeals** function app blade and click on **Test** option present at the right most corner.<br/>
 <img src="images/file2.jpg"/><br/>
 14. Select **HTTP method** as **GET** from the dropdown. Then click **Run** button at the bottom.

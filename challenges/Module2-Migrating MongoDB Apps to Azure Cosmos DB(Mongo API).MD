@@ -480,4 +480,3 @@ Azure Cosmos DB retains the last two backups of every partition in the database 
 
 
 See this for more inforamtion on Cosmos DB Backup and recovery: https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore
-

@@ -29,7 +29,7 @@
 
 1. Open the **Terminal**, then start the mongodb Service by running **sudo service mongod start** and  verify the mongoDB database while running the **mongo** as shown below.<br/>
 <img src="images/mongo.jpg"/><br/>
-1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb3) for future use. Note down that there are 5 collections used by the Application.<br/>
+1. You can also verify the records in mongoDB database while running the following commands. Copy the db_name(contosoairdb) for future use. Note down that there are 5 collections used by the Application.<br/>
 ```bash
 show dbs 
 use <db_name>
@@ -80,26 +80,26 @@ In this exercise, We will use mongoexport to export the data from MongoDB runnin
 1. Open **Terminal** on Jump VM in which you run the **mongo** command, (Alternatively you can also access Jump VM on SSH by any ssh tool such as Putty), for verifying the MongoD Service is running. Issue following commands to export the each collection in the mongo db database to a local bkp file.<br/>
 
 ```bash
-sudo mongoexport --host localhost --db contosoairdb3 --collection BookingsCollection --out BookingsCollection.bkp
-sudo mongoexport --host localhost --db contosoairdb3 --collection DealsCollection --out DealsCollection.bkp
-sudo mongoexport --host localhost --db contosoairdb3 --collection FlightsCollection --out FlightsCollection.bkp
-sudo mongoexport --host localhost --db contosoairdb3 --collection SeatsCollection --out SeatsCollection.bkp
-sudo mongoexport --host localhost --db contosoairdb3 --collection feedbackdb --out feedbackdb.bkp
+sudo mongoexport --host localhost --db contosoairdb --collection BookingsCollection --out BookingsCollection.bkp
+sudo mongoexport --host localhost --db contosoairdb --collection DealsCollection --out DealsCollection.bkp
+sudo mongoexport --host localhost --db contosoairdb --collection FlightsCollection --out FlightsCollection.bkp
+sudo mongoexport --host localhost --db contosoairdb --collection SeatsCollection --out SeatsCollection.bkp
+sudo mongoexport --host localhost --db contosoairdb --collection feedbackdb --out feedbackdb.bkp
 ```
 <img src="images/allexport.jpg"/><br/>
 
 2.  Now, we will import this MongoDB on Azure Cosmos DB (MongoDB) and replace the **HOST, PORT, USERNAME** and **PASSWORD** with the parameters in below command with values you copied in above step.<br/>
 
 ```bash
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection BookingsCollection --file BookingsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb --collection BookingsCollection --file BookingsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection DealsCollection --file DealsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb --collection DealsCollection --file DealsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection FlightsCollection --file FlightsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb --collection FlightsCollection --file FlightsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection SeatsCollection --file SeatsCollection.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb --collection SeatsCollection --file SeatsCollection.bkp
 
-mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb3 --collection feedbackdb --file feedbackdb.bkp
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInvalidCertificates --db contosoairdb --collection feedbackdb --file feedbackdb.bkp
 ```
 <img src="images/importall.jpg"/><br/>
 
@@ -110,11 +110,11 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **HOST** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb3) before question mark in connection string.
+1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **HOST** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb) before question mark in connection string.
 it should look something like below:
 
 ```bash
-mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/*contosoairdb3*?ssl=true&replicaSet=globaldb
+mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eqOb7V0EWFnvkqzd9GMp4vjiiDYGLahw==@cosmosdb12345.documents.azure.com:10255/*contosoairdb*?ssl=true&replicaSet=globaldb
 ```
 
 2. Navigate back to the **Azure Portal** Resource groups option present in the favourites menu on the left side panel and select the **Resource Group** and click on **Azure Cosmos DB Account** then, click on **Replicate data globally** option present under **SETTINGS** section in Cosmos DB Account blade.<br/>
@@ -162,12 +162,12 @@ You should notice that latency is now changed when loading the flight data
 
 **Configure FlightsCollection data to leverage the Partitions**
 
-1. In this exercise, we'll create another collection named **FlightsCollectionPartitioned** in existing **contosoairdb3** with number of **Stops** as the partition key.
+1. In this exercise, we'll create another collection named **FlightsCollectionPartitioned** in existing **contosoairdb** with number of **Stops** as the partition key.
 1. Open Azure Portal and access the Cosmos DB account created earlier, Go to **Browse** in settings blade.
 
     ![](images/createcollection.jpg)
 
-1. Click on **Add Collection** Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb3** as the **Database Id** and **FlightsCollectionPartitioned** as **collection Id**. Enter **stop** as **Shared key**, leave all other settings as default.
+1. Click on **Add Collection** Button, Scroll horizontally to see the full dialogue box. Enter **contosoairdb** as the **Database Id** and **FlightsCollectionPartitioned** as **collection Id**. Enter **stop** as **Shared key**, leave all other settings as default.
 
    ![](images/createnewcollection.jpg)
 

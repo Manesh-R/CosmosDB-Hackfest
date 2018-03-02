@@ -21,5 +21,5 @@
 
  
 
-<a href="https://github.com/SpektraSystems/Azure-NoSQL-Handson-Lab/blob/master/challenges/Module5%20Developing%20apps%20with%20Azure%20Database%20for%20PostgreSQL.MD</a>
+<a href="https://github.com/SpektraSystems/Azure-NoSQL-Handson-Lab/blob/master/challenges/Module5%20Developing%20apps%20with%20Azure%20Database%20for%20PostgreSQL.MD">Click here to see the additional modules</a>
 

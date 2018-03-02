@@ -43,7 +43,7 @@ show collections
 <img src="images/jumpvm4.jpg"/><br/>
 1. **Open** the **Terminal** and run **npm start** command. Application should start, Incase of any errors make sure you're in right directory as instructed in previous step. Minimize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm5.jpg"/><br/>
-1. Now, to start the ContosoAir Website layer, go to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **ng serve** command in terminal. Minimize the terminal once command is executed, do not exit or CTRL+C.<br/>
+1. Now, to start the ContosoAir Website layer, go to **/home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website**. Open terminal from there and run **ng serve** command in terminal. Minimize the terminal once command is executed, do not exit or CTRL+C.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
 
     > Note This  may take upto a minute to start this website. 
@@ -126,8 +126,8 @@ mongodb://cosmosdb12345:vMTETikja355VZjnJQGC3gwdLaR8xjNlpUq65loZVd4pLvmlG9PB25eq
 <img src="images/jumpvm4.jpg"/><br/>
 <img src="images/jumpvm5.jpg"/><br/>
 
-5. ContosoAir Website should be running already in other terminal window, You can leave it running as is(No need to stop and restart).
-if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
+5. ContosoAir Website should be running already in other terminal window, You can leave it running(No need to stop and restart).
+if not running, you can manually start it to by going to **/home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website**. Open terminal from there and run **ng serve** command in terminal.<br/>
 <img src="images/jumpvm6.jpg"/><br/>
 6. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from the **here** and paste it in **Mozilla firefox** browser and press enter.<br/>
 
@@ -249,8 +249,8 @@ Now let's update the application to use secondary region as read region and expe
 1. Open the **Terminal** window already running with **npm start** for Services application, Exit the application by pressing CTRL+C and start the application again by running **npm start**.<br/>
    <img src="images/jumpvm4.jpg"/><br/>
    <img src="images/jumpvm5.jpg"/><br/>
-1. ContosoAir Website should be running already in other terminal window, you can leave it running as is(No need to stop and restart).
-if not running, you can manually start it to by going to /home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website. Open terminal from there and run **np serve** command in terminal.<br/>
+1. ContosoAir Website should be running already in other terminal window, you can leave it running(No need to stop and restart).
+if not running, you can manually start it to by going to **/home/CosmosDB-Hackfest/ContosoAir/src/ContosoAir.Website**. Open terminal from there and run **ng serve** command in terminal.<br/>
    <img src="images/jumpvm6.jpg"/><br/>
 1. Copy the **localhost URL** [http://localhost:4200](http://localhost:4200) from **here** and paste it in **Mozilla firefox** browser and press enter.<br/>
 1. If you see login page, Login with your Microsoft account(live-id) or move to next step.<br/>

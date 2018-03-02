@@ -9,7 +9,7 @@
 
  
 
-<a href="https://github.com/Microsoft/developer-immersion-data/blob/master/labs/azure-mysql/wordpress-and-mysql/README.md">Click here to see the additional modules</a>
+<a href="https://github.com/SpektraSystems/Azure-NoSQL-Handson-Lab/blob/master/challenges/Module4-Deploy%20and%20configure%20Azure%20Database%20for%20MySQL.MD">Click here to see the additional modules</a>
 
 ## Deploy and configure Azure Database for PostgreSQL
 
@@ -21,5 +21,5 @@
 
  
 
-<a href="https://github.com/Microsoft/developer-immersion-data/blob/master/labs/azure-postgresql/Lab.md">Click here to see the additional modules</a>
+<a href="https://github.com/SpektraSystems/Azure-NoSQL-Handson-Lab/blob/master/challenges/Module5%20Developing%20apps%20with%20Azure%20Database%20for%20PostgreSQL.MD</a>
 

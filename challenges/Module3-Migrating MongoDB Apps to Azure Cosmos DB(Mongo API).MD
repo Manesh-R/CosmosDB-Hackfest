@@ -44,3 +44,65 @@ ng serve
 <img src="images/contoso1.jpg"/><br/>
 1. Enter **Departure date** and **Return date** in **YYYY-MM-DD** format and click **Find Flights** button.<br/>
 <img src="images/contosoapp.jpg"/><br/>
+
+### Create a function with Deal Data
+
+  > _Let's create an Azure Function to retrieve data of flight deals._
+
+1. Go to **Resource groups** option present in the favourites menu on the left side panel and select the resource group **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="myResourceGroupName"/>** and click on Azure Function named **<inject story-id="story://Content-Private/content/dfd/SP-GDA/gdaexpericence1/story_a_gda_using_cosmosdb" key="azureFunctionName"/>**.<br/>
+2. However over the **Functions** under **Functions Apps** and click on **+ sign** besides **Functions**.<br/>
+3. Now, click on the **Custom function** link present at the bottom of the page.<br/>
+<img src="images/GetStartedOnYourOwn.jpg"/><br/>
+4. Click on **C#** template available in **HTTP trigger** section and name the function as "**FetchDealsData**" in **Name** textbox and click **Create** button.<br/>
+<img src="images/httptrigger.jpg"/><br/>
+<img src="images/httpvalue.jpg"/><br/>
+5. A function with sample default code would get created. Now, replace the sample default code with the code snippet given below.<br/>
+
+    ```c#
+    using System.Net;
+    using System.Linq;
+
+    public static HttpResponseMessage Run(HttpRequestMessage req, TraceWriter log, IEnumerable<dynamic> SelectDealsData)
+    {
+        return req.CreateResponse(HttpStatusCode.OK, SelectDealsData);
+    }
+    ```
+
+    > **NOTE:**
+    > In above code snippet, **IEnumerable&lt;dynamic> SelectDealsData** is a parameter used to fetch the list of **DealsData** collection from Cosmos DB. This method returns the result fetched from Cosmos DB along with **HttpStatusCode** with the help of **CreateResponse** method.<br/>
+6. Click on **Save** button.<br/>
+7. Now, click on the **Integrate** option listed in **"FetchDealsData"** function in the **Function Apps** blade.<br/>
+8. Under **Inputs** section, click on **+ New Input** and select **Azure Cosmos DB** then click **Select** button at the bottom of page.<br/>
+<img src="images/Integrate.jpg"/><br/>
+8. Enter **Document parameter name** as **SelectDealsData**, **Database name** as **contosoairdb** and **Collection name** as **DealsCollection** in respective textboxes.<br/>
+9. Copy the **SQL query** given below and paste it into **SQL Query (optional)** textbox.<br/>
+
+    ```sql
+   select c.id, c.fromName, c.fromCode, c.toName, c.toCode, c.price, c.departTime, c.arrivalTime, c.hours, c.stops, c.since from c
+    ```
+
+    > **NOTE:** Above **SQL query** is responsible to get deals details from **DealsCollection** available in Cosmos DB like id, from name, from code, to name, to code, price, depart time, arrival time, hours, stops, since. (Ignore non-mandatory fields)
+
+    ![](image/SqlQuery.jpg)
+    
+10. To enter **Cosmos DB account connection,** click on the **new** link given beside **Cosmos DB account connection** textbox.<br/>
+11. You will be redirected to **Cosmos DB Account blade**, select the **MongoDB DB Account** as shown below.<br/>
+<img src="images/selectmongodocdb.jpg"/><br/>
+12. Now, click **Save** button ![](img/save.jpg) button.<br/>
+13. To check whether the function is integrated, click on **FetchDealsData** function present under **AureFunctionForDeals** function app blade and click on **Test** option present at the right most corner.<br/>
+<img src="images/file2.jpg"/><br/>
+14. Select **HTTP method** as **GET** from the dropdown. Then click **Run** button at the bottom.
+<img src="images/runfxn.jpg"/><br/>
+15. Status **200 Ok** will be displayed once the test is completed which signifies that the function is integrated successfully.<br/>
+<img src="images/status200.jpg"/><br/>
+
+   > _Here you go! You have successfully created Azure Function to_ _retrieve flight deals_ _data from_ **Cosmos DB**_._
+
+16. In the **Functions Apps** blade, click on **FetchDealsData**.<br/>
+17. You will get navigated to function and will find **</> Get function URL** link in the top right corner of the page. Click on the link <img src="images/getFunctn.jpg"/><br/>
+18. On clicking **</> Get function URL** you will get a popup window with a URL.<br/>
+ <img src="images/getfxnurl.jpg"/><br/>
+19. Click on **Copy** ![](img/Copy.jpg) icon to copy the given URL and paste it against **AZURE\_FUNCTION\_DEALS\_URL:** variable in **config.js file** opened in **Visual Studio 2017** IDE and save the file.
+
+   > _Awesome, you have created Azure Function for Deals data and integrated with Cosmos DB._
+

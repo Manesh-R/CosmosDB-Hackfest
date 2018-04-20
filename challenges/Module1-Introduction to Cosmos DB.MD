@@ -122,6 +122,9 @@ For example: SELECT * FROM c  WHERE c.Sector= "Financial"
 <img src="images/queryrun.jpg"/><br/>
 4.  Now we can see all the data with **Sector = Financial**<br/>
 <img src="images/query_op.jpg"/><br/>
+
+
+See this for more SQL Query examples: https://www.documentdb.com/sql/demo 
 ### 2.  Distribute Data Globally
    > Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
    

@@ -4,7 +4,7 @@
 In this lab, you will be deploying pre-requisite infrastructure which is required for CosmosDB Hackfest.
 #### Prerequisites
 * Windows or a Mac machine with HTML5 supported browser such as Microsoft Edge, Internet Explorer, Chrome or Firefox.
-* You should have registered in the training portal https://azuretraining.spektrasystems.com and received the confirmation message with the credentials to login to the Azure portal.
+* You should have registered in the training portal http://experience-azure-mgmt.azurewebsites.net and received the confirmation message with the credentials to login to the Azure portal.
 
 <img src="images/module.jpg"/><br/>
 #### Time Estimate

@@ -63,9 +63,8 @@ A zip file will download, extract and open the file to view the json data set.<b
 7.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 8.  Click on the **Resource Group** icon on the **Menu navigation bar**.<br/>
 <img src="images/rg.jpg"/><br/>
-9.  Now in the **Resource Groups** blade that appear, select the created resource group for cosmos DB, (i.e, **cosmosdb-rg**).<br/>
-<img src="images/cosmosrg.jpg"/><br/>
-10.  Then click on the created **Azure Cosmos DB account(i.e,cosmosdb321)**.<br/>
+9.  Now in the **Resource Groups** blade that appear, select the created resource group for cosmos DB.<br/>
+10.  Then click on the created **Azure Cosmos DB account**.<br/>
 <img src="images/cosmosdb.jpg"/><br/>
 11.  In the **Azure Cosmos DB account** blade, Click on **keys** menu under the **setting** tile.<br/>
 <img src="images/keys.jpg"/><br/>   

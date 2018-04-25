@@ -30,7 +30,7 @@
 <img src="images/rg.jpg"/><br/>
 3.  Now in the **Resource Groups** blade that appear, select the resource group for cosmos DB, (i.e, **odl-cosmosdb-hackfest**).<br/>
 <img src="images/cosmosrg.jpg"/><br/>
-4.  Then click on the created Azure Cosmos DB account(i.e,cosmosdb321).<br/>
+4.  Then click on the created Azure Cosmos DB account32.<br/>
 <img src="images/cosmosdb.jpg"/><br/>
 5.	In the Azure Cosmos DB account blade that appear, Click on **Overview**.<br/>
 <img src="images/cosmosdboverview.jpg"/><br/>

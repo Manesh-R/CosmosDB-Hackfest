@@ -208,46 +208,48 @@
                 }]
             }
         },
-        {
-            "apiVersion": "2017-03-30",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('jumpVirtualMachineName')]",
-            "location": "[resourceGroup().location]",
-            "comments": "Jump VM name",
-            "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', variables('jumpNicName'))]"
-            ],
-            "tags": {
-                "displayName": "Jump Virtual Machine"
-            },
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "Standard_DS2_v2"
-                },
-                "osProfile": {
-                    "computerName": "[parameters('jumpVirtualMachineName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-hackfest-images/providers/Microsoft.Compute/images/jumpvm-', resourceGroup().location)]"
-                    },
-                    "osDisk": {
-                        "createOption": "FromImage",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
-                        }
-                    },
-                    "dataDisks": []
-                },
-                "networkProfile": {
-                    "networkInterfaces": [{
-                        "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('jumpNicName'))]"
-                    }]
-                }
-            }
+      {
+        "apiVersion": "2017-03-30",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[parameters('jumpVirtualMachineName')]",
+        "location": "[resourceGroup().location]",
+        "comments": "Jump VM name",
+        "dependsOn": [
+          "[concat('Microsoft.Network/networkInterfaces/', variables('jumpNicName'))]"
+        ],
+        "tags": {
+          "displayName": "Jump Virtual Machine"
         },
+        "properties": {
+          "hardwareProfile": {
+            "vmSize": "Standard_DS2_v2"
+          },
+          "osProfile": {
+            "computerName": "[parameters('jumpVirtualMachineName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+          },
+          "storageProfile": {
+            "imageReference": {
+              "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/aec-mgmt-rg/providers/Microsoft.Compute/images/cosmosdb-lin-v1-',resourceGroup().location)]"
+            },
+            "osDisk": {
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "Premium_LRS"
+              }
+            },
+            "dataDisks": []
+          },
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('jumpNicName'))]"
+              }
+            ]
+          }
+        }
+      },
         {
             "apiVersion": "2016-04-30-preview",
             "type": "Microsoft.Compute/virtualMachines",
@@ -274,7 +276,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/cosmos-powerbi-vmimage/providers/Microsoft.Compute/images/cosmospowerbi-', resourceGroup().location)]"
+                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/aec-mgmt-rg/providers/Microsoft.Compute/images/cosmosdb-win-v1-',resourceGroup().location)]"
                     },
                     "osDisk": {
                         "createOption": "fromImage",

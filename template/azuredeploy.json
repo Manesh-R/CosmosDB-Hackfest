@@ -38,7 +38,8 @@
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/','subnet')]"
     },
-    "resources": [{
+    "resources": [
+        {
             "apiVersion": "2017-04-01",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[variables('jumpPublicIPAddressName')]",

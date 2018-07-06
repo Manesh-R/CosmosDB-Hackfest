@@ -110,7 +110,7 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --ssl --sslAllowInv
 
 ### Update Application to use Cosmos DB 
 
-1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **HOST** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY KEY** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb3) before question mark in connection string.
+1. Go back to Visual Studio Code IDE in JumpVM and navigate to the config.js file under ContosoAir.Services and paste the **HOST** value against **DOCUMENT_DB_ENDPOINT**, **PRIMARY PASSWORD** against **DOCUMENT_DB_PRIMARYKEY**, **DOCUMENT_DB_DATABASE** as **contosoairdb3** and **Primary Connection String** Against **MONGO_DB_CONNECTION_STRING** and add database name (contosoairdb3) before question mark in connection string.
 it should look something like below:
 
 ```bash

@@ -9,7 +9,7 @@ In this lab, you will be deploying pre-requisite infrastructure which is require
 
 <img src="images/module.jpg"/><br/>
 #### Time Estimate
-45 minutes
+15 minutes
 
 ### Exercise 1: Log into your Azure Portal
 In this exercise, you will log into the Azure Portal using your Azure credentials.

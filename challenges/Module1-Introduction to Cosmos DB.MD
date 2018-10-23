@@ -50,8 +50,8 @@
 
 2. Download the sample data inside the **PowerBI VM** which we would migrate to cosmos DB by clicking [here](https://experienceazure.blob.core.windows.net/templates/cosmosdb/stocks/stocks.json) <br/>
   >Open the file to view the json data set.<br/>
-3.  **Launch** your **data migration tool** by opening the **dtui.exe** application. (under C:\Packages)<br/>
-<img src="images/migrationtool.jpg"/><br/>   
+3.  **Launch** your **data migration tool** by opening the **dtui** application (From Desktop).<br/>
+<img src="images/dtui.jpg"/><br/>   
 4.  In the **DocumentDB Data Migration Tool** blade that appear, Click on **Next**.<br/>
 <img src="images/mig-toolWelcome.jpg"/><br/>   
 5.  In the source information page that appear, select Import from **JSON file(s)** and click on **Add Files**.<br/>

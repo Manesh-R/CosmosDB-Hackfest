@@ -47,16 +47,13 @@
 #### 1.3.1	Access Windows VM and Launch Data migration tool.
 
 1.  You'd have a pre-created windows virtual machine named PowerBI VM for you in your azure lab environment. Please access the virtual machine via remote desktop. DNS Name for the virtual machine is also available on the lab details page. 
-
-2. Download the sample data inside the **PowerBI VM** which we would migrate to cosmos DB by clicking [here](https://experienceazure.blob.core.windows.net/templates/cosmosdb/stocks/stocks.json) <br/>
-  >Open the file to view the json data set.<br/>
 3.  **Launch** your **data migration tool** by opening the **dtui** application (From Desktop).<br/>
 <img src="images/dtui.jpg"/><br/>   
 4.  In the **DocumentDB Data Migration Tool** blade that appear, Click on **Next**.<br/>
 <img src="images/mig-toolWelcome.jpg"/><br/>   
 5.  In the source information page that appear, select Import from **JSON file(s)** and click on **Add Files**.<br/>
 <img src="images/SourceInfo.jpg"/><br/>   
-6.  Select the downloaded file, **stocks.json** and click on open.<br/>
+6.  Go to  **C** drive and select the **stocks** folder, click on **stocks.json** to open it.<br/>
 <img src="images/importfiles.jpg"/><br/>   
 7.  Then in the **source information** page, click on **Next** and a Target information page will appear.<br/><img src="images/SourceInfoNxt.jpg"/><br/>
 8.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>

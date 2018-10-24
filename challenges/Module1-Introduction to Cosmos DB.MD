@@ -54,7 +54,7 @@
 4.  In the source information page that appear, select Import from **JSON file(s)** and click on **Add Files**.<br/>
 <img src="images/SourceInfo.jpg"/><br/>   
 5.  Go to  **C** drive and select the **stocks** folder, click on **stocks.json** to open it.<br/>
-<img src="images/importfiles.jpg"/><br/>   
+<img src="images/importfiles1.jpg"/><br/>   
 6.  Then in the **source information** page, click on **Next** and a Target information page will appear.<br/><img src="images/SourceInfoNxt.jpg"/><br/>
 7.  **Launch** a browser and **navigate** to https://portal.azure.com. **Login** with your Microsoft Azure credentials.<br/>
 8.  Click on the **Resource Group** icon on the **Menu navigation bar**.<br/>
